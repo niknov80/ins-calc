@@ -24,17 +24,20 @@ function CheckboxList({
   return (
     <StyledFieldset as="fieldset">
       <legend>{listName}</legend>
-      {options.map((option, index) => (
-        <Checkbox
-          selectValues={selectValues}
-          isChecked={selectValues.includes(option.value)}
-          name={name}
-          value={option.value}
-          text={option.title}
-          onClick={(value) => onClickLabel(value, index)}
-          onChange={handleChange}
-        />
-      ))}
+      <ul>
+        {options.map((option, index) => (
+          <li key={option.value}>
+            <Checkbox
+              isChecked={selectValues.includes(option.value)}
+              name={name}
+              value={option.value}
+              text={option.title}
+              onClick={(value) => onClickLabel(value, index)}
+              onChange={handleChange}
+            />
+          </li>
+        ))}
+      </ul>
     </StyledFieldset>
   );
 }

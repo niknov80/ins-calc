@@ -63,7 +63,7 @@ export const calcData = {
       "article": "4",
       "price": 90000,
       "description": "Лицензия на право использования операционной системы  без ограничения срока действия.  Конфигурация \"Сервер\"Windows Server 2022 Standard",
-      "id": "win-cln"
+      "id": "win-srv"
     }
   ],
   "modules": [
