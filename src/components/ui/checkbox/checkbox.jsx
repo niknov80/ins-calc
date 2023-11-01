@@ -1,5 +1,5 @@
 function Checkbox({
-  onClick,
+  // onClick,
   isChecked,
   value,
   name,
@@ -8,9 +8,8 @@ function Checkbox({
   ...props
 }) {
 
-
   return (
-    <label onClick={() => onClick(value)}>
+    <label>
       <input
         type="checkbox"
         value={value}

@@ -7,8 +7,14 @@ export const Main = styled(Section)`
   margin: 0 auto;
   padding-top: 0;
   padding-bottom: 0;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 40%;
+  column-gap: 3%;
 `;
+
+export const Title = styled.h1`
+  grid-column: 1 / 3;
+`
 
 export const Wrapper = styled.div`
   display: flex;

@@ -1,6 +1,9 @@
 import React from "react";
 import Checkbox from "../../ui/checkbox/checkbox";
 import {StyledFieldset} from "../../styled/section/section";
+import {Ul} from "../../styled/ul/ul";
+import {Li} from "../../styled/li/li";
+
 
 function CheckboxList({
   listName,
@@ -8,7 +11,7 @@ function CheckboxList({
   options, // массив с объектами для выбора {title: заголовок, value: значение}
   name, // имя
   onChange, // событие при изменении
-  onClickLabel = () => {}
+  // onClickLabel = () => {}
 }) {
   const handleChange = (value) => {
     const newValue = [...selectValues];
@@ -19,25 +22,28 @@ function CheckboxList({
       newValue.push(value);
     }
     onChange && onChange(newValue);
+    console.log(value);
   };
+
+  // console.log(selectValues);
 
   return (
     <StyledFieldset as="fieldset">
       <legend>{listName}</legend>
-      <ul>
+      <Ul>
         {options.map((option, index) => (
-          <li key={option.value}>
+          <Li key={option.value}>
             <Checkbox
               isChecked={selectValues.includes(option.value)}
               name={name}
               value={option.value}
               text={option.title}
-              onClick={(value) => onClickLabel(value, index)}
+              // onClick={(value) => onClickLabel(value, index)}
               onChange={handleChange}
             />
-          </li>
+          </Li>
         ))}
-      </ul>
+      </Ul>
     </StyledFieldset>
   );
 }

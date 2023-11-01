@@ -1,6 +1,8 @@
 import React from "react";
 import RadioButton from "../../ui/radio-button/radio-button";
 import {StyledFieldset} from "../../styled/section/section";
+import {Ul} from "../../styled/ul/ul";
+import {Li} from "../../styled/li/li";
 
 function RadioButtonList({
   listName,
@@ -12,9 +14,9 @@ function RadioButtonList({
   return (
     <StyledFieldset as="fieldset">
       <legend>{listName}</legend>
-      <ul>
+      <Ul>
         {options.map((option, index) =>(
-          <li key={option.id}>
+          <Li key={option.id}>
             <RadioButton
               selectValue={selectValue}
               value={option.id}
@@ -22,9 +24,9 @@ function RadioButtonList({
               text={option.name}
               onChange={onChange}
             />
-          </li>
+          </Li>
         ))}
-      </ul>
+      </Ul>
     </StyledFieldset>
   );
 }

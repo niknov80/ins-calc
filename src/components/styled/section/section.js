@@ -12,8 +12,7 @@ export const Section = styled.section`
 
 export const StyledFieldset = styled(Section)`
   flex-direction: column;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 16px;
 `
 
 
