@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import Checkbox from "../checkbox/checkbox";
-import {Ul} from "../../styled/ul/ul";
+
+import Title, {TitleLevel} from "../title/title";
+import {StyledCheckboxList, StyledUl} from "./styles";
 
 const CheckboxList = ({
   listName, // Заголовок списка
@@ -31,22 +33,23 @@ const CheckboxList = ({
   };
 
   return (
-    <div>
-      <h2>{listName}</h2>
-      <Ul>
+    <StyledCheckboxList>
+      <Title level={TitleLevel.H2} className={"list__title"}>{listName}</Title>
+      <StyledUl>
         {options.map((item) => (
           <Checkbox
             key={item.index}
             value={item.id}
             text={item.name}
             name={name}
+            price={item.price}
             {...item}
             onChange={changeHandler}
             isCheckDisable={isCheckDisable}
           />
         ))}
-      </Ul>
-    </div>
+      </StyledUl>
+    </StyledCheckboxList>
   );
 }
 

@@ -1,10 +1,14 @@
 import React from "react";
-import { StyledSection } from "./styles";
-
+import {FooterWrapper, StyledSection} from "./styles";
+import {Container} from "../../styled";
 function Footer() {
   return (
     <StyledSection as="footer">
-      <p>FOOTER</p>
+      <Container>
+        <FooterWrapper>
+          <span>v0.9.0</span>
+        </FooterWrapper>
+      </Container>
     </StyledSection>
   );
 }

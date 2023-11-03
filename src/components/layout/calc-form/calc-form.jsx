@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from "react";
-import Modules from "../modules/modules";
-import Systems from "../systems/systems";
-import Platform from "../platform/platform";
-import Os from "../os/os";
+import Modules from "../../blocks/modules/modules";
+import Systems from "../../blocks/systems/systems";
+import Platform from "../../blocks/platform/platform";
+import Os from "../../blocks/os/os";
+import {StyledDeviceList} from "./styles";
 function CalcForm({
   calcData: {complexes = [], os = [], modules = [], systems = []},
   onChange
@@ -23,7 +24,7 @@ function CalcForm({
   const [namePlatform, setNamePlatform] = useState(complexes[0].name);
 
   useEffect(() => {
-    const productArticle = `${platformArticle}${osArticle ? "-ОС_" + osArticle : "" }${moduleArticle ? "-М_" + moduleArticle : "" }${systemArticle ? "-И_" + systemArticle : ""}`
+    const productArticle = `${platformArticle}${osArticle ? " - ОС_" + osArticle : "" }${moduleArticle ? " - М_" + moduleArticle : "" }${systemArticle ? " - И_" + systemArticle : ""}`
     const productPrice = Number(platformPrice) +  Number(osPrice) +  Number(modulePrice) +  Number(systemPrice);
     onChange && onChange(productArticle, productPrice, namePlatform);
   }, [platformArticle, osArticle, moduleArticle, systemArticle]);
@@ -52,12 +53,12 @@ function CalcForm({
 
 
   return (
-    <div >
+    <StyledDeviceList >
       <Platform platform={complexes} onChange={changePlatformHandler}/>
       <Os os={os} onChange={changeOsHandler} />
       <Modules modules={modules} maxModules={MAX_MODULES} onChange={changeModuleHandler}/>
       <Systems modules={systems} maxModules={MAX_SYSTEMS} onChange={changeSystemHandler}/>
-    </div>
+    </StyledDeviceList>
   );
 }
 

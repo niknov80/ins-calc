@@ -1,10 +1,10 @@
 import React, {useState} from "react";
 import Header from "../header/header";
 import Footer from "../footer/footer";
-import {Main, Title, Wrapper} from "./styles";
-import CalcForm from "../../blocks/calc-form/calc-form";
+import {Main, MainWrapper, Wrapper} from "./styles";
+import CalcForm from "../calc-form/calc-form";
 import ProductCard from "../../blocks/product-card/product-card";
-
+import {Container} from "../../styled";
 
 function PageWrapper({calcData}) {
   const [article, setArticle] = useState("");
@@ -20,9 +20,12 @@ function PageWrapper({calcData}) {
     <Wrapper>
       <Header />
       <Main as="main">
-        <Title>Калькулятор ПАК ИНСОНЕТ</Title>
-        <CalcForm calcData={calcData} onChange={handleChange}/>
-        <ProductCard article={article} price={price} name={name}/>
+        <Container>
+          <MainWrapper>
+            <CalcForm calcData={calcData} onChange={handleChange}/>
+            <ProductCard article={article} price={price} name={name}/>
+          </MainWrapper>
+        </Container>
       </Main>
       <Footer />
     </Wrapper>

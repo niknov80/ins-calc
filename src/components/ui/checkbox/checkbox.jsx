@@ -1,5 +1,6 @@
 import React, {useState} from "react";
-import {Li} from "../../styled/li/li";
+import {VisuallyHiddenInput} from "../../styled";
+import {StyledCheckbox, StyledText} from "./styles";
 const Checkbox = ({
   index, // уникальный идентификатор
   isChecked, // начальное состояние чекбокса
@@ -7,6 +8,7 @@ const Checkbox = ({
   value, // значение
   name, // имя
   text, // текст лейбла
+  price,
   onChange // событие при изменении
 }) => {
 
@@ -17,9 +19,9 @@ const Checkbox = ({
   }
 
   return (
-    <Li>
+    <StyledCheckbox>
       <label>
-        <input
+        <VisuallyHiddenInput
           type="checkbox"
           value={value}
           name={name}
@@ -27,9 +29,13 @@ const Checkbox = ({
           onChange={changeHandler}
           disabled={isCheckDisable ? !checked : false}
         />
-        <span>{text}</span>
+        <span></span>
+        <StyledText>
+          <p>{text}</p>
+          <p>{price} руб.</p>
+        </StyledText>
       </label>
-    </Li>
+    </StyledCheckbox>
   );
 }
 export default Checkbox;

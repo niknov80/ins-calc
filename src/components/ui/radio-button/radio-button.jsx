@@ -1,27 +1,33 @@
-import {Li} from "../../styled/li/li";
+import {StyledRadioButton, StyledText} from "./styled";
+import {VisuallyHiddenInput} from "../../styled";
 
 function RadioButton({
   selectValue,
   value, // значение
   name, // имя
   text, // текст элемента
+  price, // цена
   onChange // событие при изменении
 }) {
   const isChecked = value === selectValue;
 
   return (
-    <Li>
+    <StyledRadioButton>
       <label>
-        <input
+        <VisuallyHiddenInput
           type="radio"
           value={value}
           name={name}
           checked={isChecked}
           onChange={onChange}
         />
-        <span>{text}</span>
+        <span></span>
+        <StyledText>
+          <p>{text}</p>
+          <p>{price} руб.</p>
+        </StyledText>
       </label>
-    </Li>
+    </StyledRadioButton>
   );
 }
 export default RadioButton;

@@ -1,12 +1,18 @@
 import React from "react";
-import {StyledProductCard, StyledText} from "./styles";
+import {StyledProductCard, ProductOptionList, StyledTerm ,StyledDefinition} from "./styles";
+import Title, {TitleLevel} from "../../ui/title/title";
 
 const ProductCard = ({price, article, name}) => {
   return (
     <StyledProductCard>
-      <StyledText>Наименование: {name || '<Not set>'}</StyledText>
-      <StyledText>Артикул: {article || '<Not set>'}</StyledText>
-      <StyledText>Стоимость: {price || '<Not set>'} руб.</StyledText>
+      <Title level={TitleLevel.H2} className={'list__title'}>{name || '<Not set>'}</Title>
+      <ProductOptionList>
+        <StyledTerm>Артикул:</StyledTerm>
+        <StyledDefinition>{article || '<Not set>'}</StyledDefinition>
+        <StyledTerm>Стоимость:</StyledTerm>
+        <StyledDefinition>{price.toLocaleString('ru-RU') || '<Not set>'} руб.</StyledDefinition>
+      </ProductOptionList>
+
     </StyledProductCard>
   )
 }
