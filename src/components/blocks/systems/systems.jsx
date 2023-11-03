@@ -15,8 +15,9 @@ const Systems = ({
       articles.push(item.article);
     })
     const article = articles.join("_");
-    const price = selectModules.reduce((sum, item) =>  sum += item.price, 0);
-    onChange && onChange(article, price);
+    const price =  selectModules.reduce((sum, item) =>  sum += item.price, 0);
+
+    onChange && onChange(article, price > 0 ? price + 1100000 : 0 );
   }
 
   return (

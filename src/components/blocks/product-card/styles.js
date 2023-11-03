@@ -8,6 +8,8 @@ export const StyledProductCard = styled.div`
   padding: 16px;
   margin-top: 15px;
   row-gap: 10px;
+  position: sticky;
+  top: 30px;
 `;
 
 export const StyledText = styled.p`
