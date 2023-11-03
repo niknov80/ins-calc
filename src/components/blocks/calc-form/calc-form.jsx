@@ -1,77 +1,62 @@
-import React, { useState } from "react";
-import CheckboxList from "../checkbox-list/checkbox-list";
-import RadioButtonList from "../radio-button-list/radio-button-list";
+import React, {useState, useEffect} from "react";
+import Modules from "../modules/modules";
+import Systems from "../systems/systems";
+import Platform from "../platform/platform";
+import Os from "../os/os";
 function CalcForm({
   calcData: {complexes = [], os = [], modules = [], systems = []},
   onChange
 }) {
-  const [selectComplex, setSelectComplex] = useState(complexes[0].id);
-  const complex = complexes.find((complex) => complex.id === selectComplex);
-  const complexPrice = complex ? complex.price : 0;
-  const complexArticle = complex.article;
-  const complexName = complex.name;
+  const MAX_MODULES = 3 // максимальное количество модулей
+  const MAX_SYSTEMS = 5 // максимальное количество подключаемых систем
 
-  const [selectOs, setSelectOs] = useState(os[0].id);
-  const opSys = os.find((osys) => osys.id === selectOs);
-  const osPrice = opSys ? opSys.price : 0;
-  const osArticle = `ОС_${opSys.article}`;
+  const [platformArticle, setPlatformArticle] = useState(complexes[0].article);
+  const [osArticle, setOsArticle] = useState(os[0].article);
+  const [moduleArticle, setModuleArticle] = useState("");
+  const [systemArticle, setSystemArticle] = useState("");
 
-  const [selectModuleIds, setSelectModuleIds] = useState([]);
-  const selectModules = selectModuleIds.map((id) => modules.find((module)=>module.id === id));
-  const modulePrice = selectModules.reduce((sum, module) =>  sum += module.price, 0);
-  const moduleArticles = selectModules.reduce((sum, module) =>  sum += `_${module.article}`, "");
-  const moduleArticle = moduleArticles ? `-И${moduleArticles}` : "";
+  const [platformPrice, setPlatformPrice] = useState(complexes[0].price);
+  const [osPrice, setOsPrice] = useState("");
+  const [modulePrice, setModulePrice] = useState("");
+  const [systemPrice, setSystemPrice] = useState("");
 
-  const [selectSystemIds, setsSelectSystemIds] = useState([]);
-  const selectSystems = selectSystemIds.map((id) => systems.find((system)=>system.id === id));
-  const systemsPrise = selectSystems.reduce((sum, system) =>  sum += system.price, 0);
-  const systemPrice = systemsPrise ? systemsPrise + 1100000 : 0
-  const systemsArticle = selectSystems.reduce((sum, system) =>  sum += `_${system.article}`, "");
-  const systemArticle = systemsArticle ? `-М${systemsArticle}` : "";
+  const [namePlatform, setNamePlatform] = useState(complexes[0].name);
 
-  const fullPrice = systemPrice + complexPrice + osPrice + modulePrice;
-  const article = `${complexArticle} (${osArticle}${moduleArticle}${systemArticle})`;
+  useEffect(() => {
+    const productArticle = `${platformArticle}${osArticle ? "-ОС_" + osArticle : "" }${moduleArticle ? "-М_" + moduleArticle : "" }${systemArticle ? "-И_" + systemArticle : ""}`
+    const productPrice = platformPrice + osPrice + modulePrice + systemPrice
+    onChange && onChange(productArticle, productPrice, namePlatform);
+  }, [platformArticle, osArticle, moduleArticle, systemArticle]);
 
-  const handleChange = () => {
-    onChange(fullPrice, article, complexName);
+
+  const changePlatformHandler = (art, prc, name) => {
+    setPlatformArticle(art);
+    setPlatformPrice(prc);
+    setNamePlatform(name);
   }
 
+  const changeOsHandler = (art, prc) => {
+    setOsArticle(art);
+    setOsPrice(prc)
+  }
+
+  const changeModuleHandler = (art, prc) => {
+    setModuleArticle(art);
+    setModulePrice(prc);
+  }
+
+  const changeSystemHandler = (art, prc) => {
+    setSystemArticle(art);
+    setSystemPrice(prc);
+  }
+
+
   return (
-    <div onChange={handleChange}>
-      <RadioButtonList
-        listName={"Выберите аппаратную платформу"}
-        options={complexes}
-        name={"product"}
-        selectValue={selectComplex}
-        onChange={(el) => setSelectComplex(el.target.value)}
-      />
-      <RadioButtonList
-        listName={"Выберите операционную систему"}
-        options={os}
-        name={"os"}
-        selectValue={selectOs}
-        onChange={(el) => setSelectOs(el.target.value)}
-      />
-      <CheckboxList
-        listName={"Выберите программный модуль"}
-        name={"module"}
-        options={modules.map((product) => ({
-          value: product.id,
-          title: product.name
-        }))}
-        selectValues={selectModuleIds}
-        onChange={setSelectModuleIds}
-      />
-      <CheckboxList
-        listName={"Выберите подключаемые системы"}
-        name={"integration"}
-        options={systems.map((product) => ({
-          value: product.id,
-          title: product.name
-        }))}
-        selectValues={selectSystemIds}
-        onChange={setsSelectSystemIds}
-      />
+    <div >
+      <Platform platform={complexes} onChange={changePlatformHandler}/>
+      <Os os={os} onChange={changeOsHandler} />
+      <Modules modules={modules} maxModules={MAX_MODULES} onChange={changeModuleHandler}/>
+      <Systems modules={systems} maxModules={MAX_SYSTEMS} onChange={changeSystemHandler}/>
     </div>
   );
 }

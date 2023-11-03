@@ -7,13 +7,12 @@ import ProductCard from "../../blocks/product-card/product-card";
 
 
 function PageWrapper({calcData}) {
-
-  const [price, setPrice] = useState('');
-  const [article, setArticle] = useState('');
-  const [name, setName] = useState('')
-  const handleChange = (fullPrice, article, name) => {
-    setPrice(fullPrice);
-    setArticle(article);
+  const [article, setArticle] = useState("");
+  const [price, setPrice] = useState("");
+  const [name, setName] = useState("");
+  const handleChange = (art, prc, name) => {
+    setArticle(art);
+    setPrice(prc);
     setName(name);
   }
 
@@ -23,7 +22,7 @@ function PageWrapper({calcData}) {
       <Main as="main">
         <Title>Калькулятор ПАК ИНСОНЕТ</Title>
         <CalcForm calcData={calcData} onChange={handleChange}/>
-        <ProductCard price={price} article={article} name={name}/>
+        <ProductCard article={article} price={price} name={name}/>
       </Main>
       <Footer />
     </Wrapper>

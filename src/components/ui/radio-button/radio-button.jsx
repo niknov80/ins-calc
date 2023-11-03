@@ -1,4 +1,6 @@
- function RadioButton({
+import {Li} from "../../styled/li/li";
+
+function RadioButton({
   selectValue,
   value, // значение
   name, // имя
@@ -8,16 +10,18 @@
   const isChecked = value === selectValue;
 
   return (
-    <label>
-      <input
-        type="radio"
-        value={value}
-        name={name}
-        checked={isChecked}
-        onChange={onChange}
-      />
-      {text}
-    </label>
+    <Li>
+      <label>
+        <input
+          type="radio"
+          value={value}
+          name={name}
+          checked={isChecked}
+          onChange={onChange}
+        />
+        <span>{text}</span>
+      </label>
+    </Li>
   );
 }
 export default RadioButton;
