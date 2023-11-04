@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {TitleLevel, TitleSize} from "./title";
+import {TitleSize} from "./title";
 
 export const StyledTitle = styled.h1`
   margin: 0;

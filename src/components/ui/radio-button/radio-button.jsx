@@ -24,7 +24,7 @@ function RadioButton({
         <span></span>
         <StyledText>
           <p>{text}</p>
-          <p>{price} руб.</p>
+          <p>{price.toLocaleString('ru-RU')} руб.</p>
         </StyledText>
       </label>
     </StyledRadioButton>

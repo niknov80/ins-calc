@@ -1,6 +1,14 @@
 import React, {useState} from "react";
 import CheckboxList from "../../ui/checkbox-list/checkbox-list";
 
+const Caption = ({children}) => {
+  return (
+    <p>
+      {children}
+    </p>
+  );
+}
+
 const Systems = ({
   modules,
   maxModules,
@@ -21,14 +29,17 @@ const Systems = ({
   }
 
   return (
-    <CheckboxList
-      listName="Выберите програмный модуль"
-      name="system"
-      options={modules}
-      selectValues={selectIds}
-      onChange={changeHandler}
-      maxModules={maxModules}
-    />
+    <>
+      <CheckboxList
+        listName="Выберите програмный модуль"
+        name="system"
+        options={modules}
+        selectValues={selectIds}
+        onChange={changeHandler}
+        maxModules={maxModules}
+      />
+      <Caption>Стоимость первой подключаемой системы 1 450 000 руб, остальные 350 000 руб.</Caption>
+    </>
   );
 }
 

@@ -27,7 +27,7 @@ function CalcForm({
     const productArticle = `${platformArticle}${osArticle ? " - ОС_" + osArticle : "" }${moduleArticle ? " - М_" + moduleArticle : "" }${systemArticle ? " - И_" + systemArticle : ""}`
     const productPrice = Number(platformPrice) +  Number(osPrice) +  Number(modulePrice) +  Number(systemPrice);
     onChange && onChange(productArticle, productPrice, namePlatform);
-  }, [platformArticle, osArticle, moduleArticle, systemArticle]);
+  }, [platformArticle, osArticle, moduleArticle, systemArticle, modulePrice, namePlatform, onChange, osPrice, platformPrice, systemPrice]);
 
 
   const changePlatformHandler = (art, prc, name) => {
