@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { TitleSize } from "./title";
+import {TitleLevel, TitleSize} from "./title";
 
 export const StyledTitle = styled.h1`
   margin: 0;
@@ -10,7 +10,13 @@ export const StyledTitle = styled.h1`
     }
     return padding;
   }};
-  font-weight: 700;
+  font-weight: ${(props) => {
+    let fontWeight = "700";
+    if (props.className === "list__title") {
+      fontWeight = "500";
+    }
+    return fontWeight;
+  }};
   line-height: ${(props) => {
     let lineHeight= "39px";
     if (props.$size === TitleSize.BIG) {

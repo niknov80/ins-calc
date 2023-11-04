@@ -12,6 +12,12 @@ export const StyledProductCard = styled.div`
   padding-bottom: 10px;
   box-shadow: ${(props) => props.theme.boxShadow};
   overflow: hidden;
+
+  @media (max-width: ${(props) => props.theme.mobileWidth}) {
+    align-self: stretch;
+    position: unset;
+    order: -1;
+  }
 `;
 
 export const ProductOptionList = styled.dl`

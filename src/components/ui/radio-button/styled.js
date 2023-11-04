@@ -3,7 +3,6 @@ import {Li} from "../../styled";
 
 export const StyledRadioButton = styled(Li)`
   display: flex;
-  
   position: relative;
   
   & p {

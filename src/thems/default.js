@@ -22,5 +22,9 @@ export const defaultTheme = {
 
   paddingHeader: '0.5em 1em',
   borderRadiusForList: '5px',
-  boxShadow: '4px 4px 8px 0 rgba(34, 60, 80, 0.2)'
+  boxShadow: '4px 4px 8px 0 rgba(34, 60, 80, 0.2)',
+
+  desktopWidth: '1920px',
+  tabletWidth: '1200px',
+  mobileWidth: '768px'
 };
