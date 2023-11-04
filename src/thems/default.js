@@ -26,5 +26,7 @@ export const defaultTheme = {
 
   desktopWidth: '1920px',
   tabletWidth: '1200px',
-  mobileWidth: '768px'
+  mobileWidth: '768px',
+
+  pagePaddingMobile: '3%'
 };

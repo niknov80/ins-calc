@@ -51,4 +51,28 @@ export const StyledTitle = styled.h1`
     }
     return backgroundColor;
   }};
+
+  @media(max-width: ${(props) => props.theme.mobileWidth}) {
+    font-size: ${(props) => {
+      let fontSize = "24px";
+      if (props.$size === TitleSize.BIG) {
+        fontSize = "28px";
+      }
+      if (props.$size === TitleSize.SMALL) {
+        fontSize = "16px";
+      }
+      return fontSize;
+    }};
+
+    line-height: ${(props) => {
+      let lineHeight= "39px";
+      if (props.$size === TitleSize.BIG) {
+        lineHeight = "36px";
+      }
+      if (props.$size === TitleSize.SMALL) {
+        lineHeight = "20px";
+      }
+      return lineHeight;
+    }};
+  }
 `;

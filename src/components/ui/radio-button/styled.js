@@ -9,6 +9,10 @@ export const StyledRadioButton = styled(Li)`
     margin-top: 0;
     margin-bottom: 0;
     padding-top: 2px;
+
+    @media(max-width: ${(props) => props.theme.mobileWidth}) {
+      padding-top: 0;
+    }
   }
   
   & label {

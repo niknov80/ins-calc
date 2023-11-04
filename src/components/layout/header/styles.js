@@ -13,8 +13,13 @@ export const StyledSection= styled(Section)`
 
 export const HeaderWrapper = styled.div`
   display: flex;
-  column-gap: 10%;
+  column-gap: 5%;
   align-items: center;
   padding-top: 25px;
   padding-bottom: 25px;
+  
+  @media(max-width: ${(props) => props.theme.mobileWidth}) {
+    flex-direction: column;
+    align-items: start;
+  };
 `;
