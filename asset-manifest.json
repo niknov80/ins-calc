@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/ins-calc/static/css/main.e6c13ad2.css",
+    "main.js": "/ins-calc/static/js/main.cf475fd2.js",
+    "static/media/logo.png": "/ins-calc/static/media/logo.d740850b3a1f67c0ceb4.png",
+    "index.html": "/ins-calc/index.html",
+    "main.e6c13ad2.css.map": "/ins-calc/static/css/main.e6c13ad2.css.map",
+    "main.cf475fd2.js.map": "/ins-calc/static/js/main.cf475fd2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.cf475fd2.js"
+  ]
+}
