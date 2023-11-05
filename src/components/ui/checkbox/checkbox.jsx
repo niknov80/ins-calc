@@ -8,7 +8,7 @@ const Checkbox = ({
   value, // значение
   name, // имя
   text, // текст лейбла
-  price,
+  price, // цена
   onChange // событие при изменении
 }) => {
 
