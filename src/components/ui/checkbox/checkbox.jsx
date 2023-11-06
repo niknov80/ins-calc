@@ -6,14 +6,16 @@ const Checkbox = ({
   isChecked, // начальное состояние чекбокса
   isCheckDisable, // флаг проверяет надо ли блокировать чекбокс
   value, // значение
-  name, // имя
+  nameList, // имя
   text, // текст лейбла
   price, // цена
   onChange, // событие при изменении
-  uncheck
+  uncheck,
+  item
 }) => {
 
   const [checked, setChecked] = useState(isChecked);
+
   const changeHandler = () => {
     setChecked(!checked)
     onChange && onChange(index)
@@ -23,11 +25,10 @@ const Checkbox = ({
     <StyledCheckbox>
       <label>
         <VisuallyHiddenInput
-          chng = {uncheck}
           type="checkbox"
           value={value}
-          name={name}
-          checked={!!(checked && uncheck !== true)}
+          name={nameList}
+          checked={uncheck ? false : checked}
           onChange={changeHandler}
           disabled={uncheck ? true : isCheckDisable ? !checked : false}
         />

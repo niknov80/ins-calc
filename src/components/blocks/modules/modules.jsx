@@ -23,7 +23,7 @@ const Modules = ({
   return (
     <CheckboxList
       listName={"Выберите программный модуль"}
-      name={"module"}
+      nameList="module"
       options={modules}
       selectValues={selectIds}
       onChange={changeHandler}

@@ -8,7 +8,7 @@ const CheckboxList = ({
   listName, // Заголовок списка
   selectValues, // массив выбранных значений
   options, // массив с объектами для выбора {title: заголовок, value: значение}
-  name, // имя
+  nameList, // имя
   onChange, // событие при изменении
   maxModules,
   uncheck
@@ -36,7 +36,6 @@ const CheckboxList = ({
     onChange && onChange(newValue.sort());
   };
 
-
   return (
     <StyledCheckboxList>
       <Title level={TitleLevel.H2} className={"list__title"}>{listName}</Title>
@@ -46,8 +45,9 @@ const CheckboxList = ({
             key={item.index}
             value={item.id}
             text={item.name}
-            name={name}
+            name="system"
             price={item.price}
+            nameList={nameList}
             {...item}
             onChange={changeHandler}
             isCheckDisable={isCheckDisable}

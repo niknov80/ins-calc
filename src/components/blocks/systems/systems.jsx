@@ -32,8 +32,8 @@ const Systems = ({
   return (
     <>
       <CheckboxList
-        listName="Выберите програмный модуль"
-        name="system"
+        listName={"Выберите програмный модуль"}
+        nameList="system"
         options={modules}
         selectValues={selectIds}
         onChange={changeHandler}
