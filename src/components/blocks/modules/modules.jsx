@@ -4,7 +4,8 @@ import CheckboxList from "../../ui/checkbox-list/checkbox-list";
 const Modules = ({
   modules,
   maxModules,
-  onChange
+  onChange,
+  uncheck
 }) => {
   const [selectIds, setsSelectIds] = useState([]);
   const changeHandler = (value) => {
@@ -27,6 +28,7 @@ const Modules = ({
       selectValues={selectIds}
       onChange={changeHandler}
       maxModules={maxModules}
+      uncheck={uncheck === 3}
     />
   );
 }

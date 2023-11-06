@@ -3,7 +3,8 @@ import RadioButtonList from "../../ui/radio-button-list/radio-button-list";
 
 const Os = ({
   os,
-  onChange
+  onChange,
+  typePlatform
 }) => {
   const [selectIds, setsSelectIds] = useState(os[0].id);
 
@@ -20,6 +21,7 @@ const Os = ({
       name={"os"}
       selectValue={selectIds}
       onChange={changeHandle}
+      typePlatform={typePlatform}
     />
   )
 }

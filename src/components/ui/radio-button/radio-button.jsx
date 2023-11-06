@@ -7,7 +7,8 @@ function RadioButton({
   name, // имя
   text, // текст элемента
   price, // цена
-  onChange // событие при изменении
+  onChange, // событие при изменении
+  isDisable
 }) {
   const isChecked = value === selectValue;
 
@@ -20,6 +21,7 @@ function RadioButton({
           name={name}
           checked={isChecked}
           onChange={onChange}
+          disabled={isDisable}
         />
         <span></span>
         <StyledText>

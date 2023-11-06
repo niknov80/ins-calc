@@ -8,8 +8,10 @@ function RadioButtonList({
   options,
   selectValue,
   name,
-  onChange
+  onChange,
+  typePlatform = "cln"
 }) {
+
   return (
     <StyledRadioButtonList>
       <Title level={TitleLevel.H2} className={"list__title"}>{listName}</Title>
@@ -23,6 +25,7 @@ function RadioButtonList({
             name={name}
             text={item.name}
             onChange={onChange}
+            isDisable={item.index < 200 || item.type === "all" ? false : typePlatform !== item.type}
           />
         ))}
       </StyledUl>

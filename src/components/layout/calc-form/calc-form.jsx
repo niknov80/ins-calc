@@ -20,6 +20,8 @@ function CalcForm({
   const [osPrice, setOsPrice] = useState(os[0].price);
   const [modulePrice, setModulePrice] = useState("");
   const [systemPrice, setSystemPrice] = useState("");
+  const [typePlatform, setTypePlatform] = useState(complexes[0].type);
+  const [typeOs, setTypeOs] = useState(complexes[0].typeOs);
 
   const [namePlatform, setNamePlatform] = useState(complexes[0].name);
 
@@ -30,10 +32,12 @@ function CalcForm({
   }, [platformArticle, osArticle, moduleArticle, systemArticle, modulePrice, namePlatform, onChange, osPrice, platformPrice, systemPrice]);
 
 
-  const changePlatformHandler = (art, prc, name) => {
+  const changePlatformHandler = (art, prc, name, tp, os) => {
     setPlatformArticle(art);
     setPlatformPrice(prc);
     setNamePlatform(name);
+    setTypePlatform(tp);
+    setTypeOs(os);
   }
 
   const changeOsHandler = (art, prc) => {
@@ -55,9 +59,9 @@ function CalcForm({
   return (
     <StyledDeviceList >
       <Platform platform={complexes} onChange={changePlatformHandler}/>
-      <Os os={os} onChange={changeOsHandler} />
-      <Modules modules={modules} maxModules={MAX_MODULES} onChange={changeModuleHandler}/>
-      <Systems modules={systems} maxModules={MAX_SYSTEMS} onChange={changeSystemHandler}/>
+      <Os typePlatform={typeOs} os={os} onChange={changeOsHandler} />
+      <Modules uncheck={typePlatform} modules={modules} maxModules={MAX_MODULES} onChange={changeModuleHandler}/>
+      <Systems uncheck={typePlatform} modules={systems} maxModules={MAX_SYSTEMS} onChange={changeSystemHandler}/>
     </StyledDeviceList>
   );
 }

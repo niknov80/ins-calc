@@ -6,7 +6,9 @@ export const calcData = {
       "price": 3120000,
       "description": "Описание Сервер БД",
       "id": "ins-s",
-      "index": 101
+      "index": 101,
+      "type": 1,
+      "typeOs": "srv"
     },
     {
       "name": "ПАК 'Инсонет' Сервер баз данных повышенной надежности",
@@ -14,7 +16,9 @@ export const calcData = {
       "price": 3660000,
       "description": "Описание Сервер БД повышенной надежности",
       "id": "ins-sp",
-      "index": 102
+      "index": 102,
+      "type": 2,
+      "typeOs": "srv"
     },
     {
       "name": "ПАК 'Инсонет' Блок сопряжения",
@@ -22,7 +26,9 @@ export const calcData = {
       "price": 2150000,
       "description": "Описание блока сопряжения",
       "id": "ins-bs",
-      "index": 103
+      "index": 103,
+      "type": 3,
+      "typeOs": "cln"
     },
     {
       "name": "ПАК 'Инсонет' Автоматизированное рабочее место (АРМ)",
@@ -30,7 +36,9 @@ export const calcData = {
       "price": 868000,
       "description": "Описание АРМ",
       "id": "ins-a",
-      "index": 104
+      "index": 104,
+      "type": 4,
+      "typeOs": "cln"
     }
   ],
   "os": [
@@ -40,7 +48,8 @@ export const calcData = {
       "price": 0,
       "description": "Без операционной системы",
       "id": "noos",
-      "index": 201
+      "index": 201,
+      "type": "all"
     },
     {
       "name": "REDOS-SRV-CER-STD-0123",
@@ -48,7 +57,8 @@ export const calcData = {
       "price": 37000,
       "description": "Простая (неисключительная) лицензия на право использования операционной системы РЕД ОС без ограничения срока действия. Сертифицированная редакция. Конфигурация \"Сервер\". Включает 1 год гарантии стандартного уровня.",
       "id": "red-srv",
-      "index": 202
+      "index": 202,
+      "type": "srv"
     },
     {
       "name": "REDOS-DSP-CER-STD-0123",
@@ -56,7 +66,8 @@ export const calcData = {
       "price": 14000,
       "description": "Простая (неисключительная) лицензия на право использования операционной системы РЕД ОС без ограничения срока действия. Сертифицированная редакция. Конфигурация \"Рабочая станция\". Включает 1 год гарантии стандартного уровня.",
       "id": "red-cln",
-      "index": 203
+      "index": 203,
+      "type": "cln"
     },
     {
       "name": "Windows 10 Pro",
@@ -64,7 +75,8 @@ export const calcData = {
       "price": 19000,
       "description": "Лицензия на право использования операционной системы без ограничения срока действия.  Конфигурация \"Рабочая станция\". Операционная система Windows 10 Pro",
       "id": "win-cln",
-      "index": 204
+      "index": 204,
+      "type": "cln"
     },
     {
       "name": "Windows Server 2022 Standard",
@@ -72,7 +84,8 @@ export const calcData = {
       "price": 90000,
       "description": "Лицензия на право использования операционной системы  без ограничения срока действия.  Конфигурация \"Сервер\"Windows Server 2022 Standard",
       "id": "win-srv",
-      "index": 205
+      "index": 205,
+      "type": "srv"
     }
   ],
   "modules": [

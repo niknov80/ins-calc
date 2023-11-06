@@ -10,8 +10,10 @@ const CheckboxList = ({
   options, // массив с объектами для выбора {title: заголовок, value: значение}
   name, // имя
   onChange, // событие при изменении
-  maxModules
+  maxModules,
+  uncheck
 }) => {
+
   const [isCheckDisable, setIsCheckDisable] = useState(false);
   const changeHandler = (value) => {
     const newValue = [...selectValues];
@@ -19,6 +21,8 @@ const CheckboxList = ({
 
     if (indexValue !== -1) {
       newValue.splice(indexValue, 1);
+    } else if (uncheck) {
+      newValue.splice(0, newValue.length);
     } else {
       newValue.push(value);
     }
@@ -31,6 +35,7 @@ const CheckboxList = ({
 
     onChange && onChange(newValue.sort());
   };
+
 
   return (
     <StyledCheckboxList>
@@ -46,6 +51,7 @@ const CheckboxList = ({
             {...item}
             onChange={changeHandler}
             isCheckDisable={isCheckDisable}
+            uncheck={uncheck}
           />
         ))}
       </StyledUl>

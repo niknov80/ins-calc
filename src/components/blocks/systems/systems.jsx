@@ -12,7 +12,8 @@ const Caption = ({children}) => {
 const Systems = ({
   modules,
   maxModules,
-  onChange
+  onChange,
+  uncheck
 }) => {
   const [selectIds, setsSelectIds] = useState([]);
   const changeHandler = (value) => {
@@ -37,6 +38,7 @@ const Systems = ({
         selectValues={selectIds}
         onChange={changeHandler}
         maxModules={maxModules}
+        uncheck={uncheck === 4}
       />
       <Caption>Стоимость первой подключаемой системы 1 450 000 руб, остальные 350 000 руб.</Caption>
     </>
