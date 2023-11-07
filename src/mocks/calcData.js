@@ -155,7 +155,7 @@ export const calcData = {
       "isChecked": false
     },
     {
-      "name": "Модуль интеграции \"Руеж-Global\" INS-SS-GL",
+      "name": "Модуль интеграции \"Рубеж-Global\" INS-SS-GL",
       "article": "02",
       "price": 350000,
       "description": "Описание модуля",

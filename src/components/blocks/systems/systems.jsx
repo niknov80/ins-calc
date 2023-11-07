@@ -32,7 +32,7 @@ const Systems = ({
   return (
     <>
       <CheckboxList
-        listName={"Выберите програмный модуль"}
+        listName={"Выберите подключаемую систему"}
         nameList="system"
         options={modules}
         selectValues={selectIds}
