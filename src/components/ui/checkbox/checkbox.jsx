@@ -46,6 +46,7 @@ const Checkbox = ({
     } else {
       setDisable(false);
     }
+    // eslint-disable-next-line
   }, [isCheckDisable])
 
 
