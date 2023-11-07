@@ -1,13 +1,19 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import CheckboxList from "../../ui/checkbox-list/checkbox-list";
 
 const Modules = ({
   modules,
   maxModules,
   onChange,
-  uncheck
+  uncheck,
+  reset
 }) => {
   const [selectIds, setsSelectIds] = useState([]);
+  useEffect(() => {
+    if (reset) {
+      setsSelectIds([]);
+    }
+  }, [reset]);
   const changeHandler = (value) => {
     setsSelectIds(value);
     const selectModules = value.map((id) => modules.find((item) => item.index === id));
@@ -29,6 +35,7 @@ const Modules = ({
       onChange={changeHandler}
       maxModules={maxModules}
       uncheck={uncheck === 3}
+      reset={reset}
     />
   );
 }

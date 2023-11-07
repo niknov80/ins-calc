@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {VisuallyHiddenInput} from "../../styled";
 import {StyledCheckbox, StyledText} from "./styles";
 const Checkbox = ({
@@ -11,15 +11,43 @@ const Checkbox = ({
   price, // цена
   onChange, // событие при изменении
   uncheck,
-  item
+  reset
 }) => {
 
   const [checked, setChecked] = useState(isChecked);
+  const [disable, setDisable] = useState(false);
 
   const changeHandler = () => {
     setChecked(!checked)
     onChange && onChange(index)
   }
+
+  useEffect(() => {
+    if (uncheck) {
+      setChecked(false);
+      setDisable(true);
+    } else {
+      setDisable(false);
+    }
+  }, [uncheck])
+
+  useEffect(() => {
+    if (reset) {
+      if (!uncheck) {
+        setDisable(false);
+      }
+      setChecked(false);
+    }
+  }, [reset])
+
+  useEffect(() => {
+    if (isCheckDisable) {
+      setDisable(!checked);
+    } else {
+      setDisable(false);
+    }
+  }, [isCheckDisable])
+
 
   return (
     <StyledCheckbox>
@@ -28,9 +56,9 @@ const Checkbox = ({
           type="checkbox"
           value={value}
           name={nameList}
-          checked={uncheck ? false : checked}
+          checked={checked}
           onChange={changeHandler}
-          disabled={uncheck ? true : isCheckDisable ? !checked : false}
+          disabled={disable}
         />
         <span></span>
         <StyledText>

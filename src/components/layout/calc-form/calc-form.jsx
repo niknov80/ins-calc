@@ -25,12 +25,13 @@ function CalcForm({
 
   const [namePlatform, setNamePlatform] = useState(complexes[0].name);
 
+  const [reset, setReset] = useState(false);
+
   useEffect(() => {
     const productArticle = `${platformArticle}(${osArticle ? "ОС_" + osArticle : "" }${systemArticle ? "/И_" + systemArticle : ""}${moduleArticle ? "/М_" + moduleArticle : "" })`
-    const productPrice = Number(platformPrice) +  Number(osPrice) +  Number(modulePrice) +  Number(systemPrice);
+    const productPrice = Number(platformPrice) +  Number(osPrice) +  Number(reset ? 0 : modulePrice) +  Number(reset ? 0 : systemPrice);
     onChange && onChange(productArticle, productPrice, namePlatform);
-  }, [platformArticle, osArticle, moduleArticle, systemArticle, modulePrice, namePlatform, onChange, osPrice, platformPrice, systemPrice]);
-
+  }, [platformArticle, osArticle, moduleArticle, systemArticle, modulePrice, namePlatform, onChange, osPrice, platformPrice, systemPrice, reset]);
 
   const changePlatformHandler = (art, prc, name, tp, os) => {
     setPlatformArticle(art);
@@ -38,21 +39,25 @@ function CalcForm({
     setNamePlatform(name);
     setTypePlatform(tp);
     setTypeOs(os);
+    setReset(true);
   }
 
   const changeOsHandler = (art, prc) => {
     setOsArticle(art);
-    setOsPrice(prc)
+    setOsPrice(prc);
+    setReset(false);
   }
 
   const changeModuleHandler = (art, prc) => {
     setModuleArticle(art);
     setModulePrice(prc);
+    setReset(false);
   }
 
   const changeSystemHandler = (art, prc) => {
     setSystemArticle(art);
     setSystemPrice(prc);
+    setReset(false);
   }
 
 
@@ -60,8 +65,8 @@ function CalcForm({
     <StyledDeviceList >
       <Platform platform={complexes} onChange={changePlatformHandler}/>
       <Os typePlatform={typeOs} os={os} onChange={changeOsHandler} />
-      <Modules uncheck={typePlatform} modules={modules} maxModules={MAX_MODULES} onChange={changeModuleHandler}/>
-      <Systems uncheck={typePlatform} modules={systems} maxModules={MAX_SYSTEMS} onChange={changeSystemHandler}/>
+      <Modules reset={reset} uncheck={typePlatform} modules={modules} maxModules={MAX_MODULES} onChange={changeModuleHandler}/>
+      <Systems reset={reset} uncheck={typePlatform} modules={systems} maxModules={MAX_SYSTEMS} onChange={changeSystemHandler}/>
     </StyledDeviceList>
   );
 }

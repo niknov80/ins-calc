@@ -11,18 +11,18 @@ const CheckboxList = ({
   nameList, // имя
   onChange, // событие при изменении
   maxModules,
-  uncheck
+  uncheck,
+  reset
 }) => {
 
   const [isCheckDisable, setIsCheckDisable] = useState(false);
+
   const changeHandler = (value) => {
     const newValue = [...selectValues];
     const indexValue = newValue.indexOf(value);
 
     if (indexValue !== -1) {
       newValue.splice(indexValue, 1);
-    } else if (uncheck) {
-      newValue.splice(0, newValue.length);
     } else {
       newValue.push(value);
     }
@@ -32,7 +32,6 @@ const CheckboxList = ({
     } else {
       setIsCheckDisable(false);
     }
-
     onChange && onChange(newValue.sort());
   };
 
@@ -45,13 +44,13 @@ const CheckboxList = ({
             key={item.index}
             value={item.id}
             text={item.name}
-            name="system"
             price={item.price}
             nameList={nameList}
             {...item}
             onChange={changeHandler}
             isCheckDisable={isCheckDisable}
             uncheck={uncheck}
+            reset={reset}
           />
         ))}
       </StyledUl>
