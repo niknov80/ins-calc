@@ -5,8 +5,10 @@ import Title, {TitleLevel} from "../../ui/title/title";
 const ProductCard = ({price, article, name}) => {
   return (
     <StyledProductCard>
-      <Title level={TitleLevel.H2} className={'list__title'}>{name || '<Not set>'}</Title>
+      <Title level={TitleLevel.H2} className={'list__title'}>Программно-аппаратный комплекс (ПАК) ИНСОНЕТ:</Title>
       <ProductOptionList>
+        <StyledTerm>Наименование:</StyledTerm>
+        <StyledDefinition>{name || '<Not set>'}</StyledDefinition>
         <StyledTerm>Артикул:</StyledTerm>
         <StyledDefinition>{article || '<Not set>'}</StyledDefinition>
         <StyledTerm>Стоимость:</StyledTerm>
