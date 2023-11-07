@@ -26,7 +26,7 @@ function CalcForm({
   const [namePlatform, setNamePlatform] = useState(complexes[0].name);
 
   useEffect(() => {
-    const productArticle = `${platformArticle}${osArticle ? " - ОС_" + osArticle : "" }${moduleArticle ? " - М_" + moduleArticle : "" }${systemArticle ? " - И_" + systemArticle : ""}`
+    const productArticle = `${platformArticle}(${osArticle ? "ОС_" + osArticle : "" }${systemArticle ? "/И_" + systemArticle : ""}${moduleArticle ? "/М_" + moduleArticle : "" })`
     const productPrice = Number(platformPrice) +  Number(osPrice) +  Number(modulePrice) +  Number(systemPrice);
     onChange && onChange(productArticle, productPrice, namePlatform);
   }, [platformArticle, osArticle, moduleArticle, systemArticle, modulePrice, namePlatform, onChange, osPrice, platformPrice, systemPrice]);

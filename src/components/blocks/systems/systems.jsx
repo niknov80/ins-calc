@@ -1,14 +1,6 @@
 import React, {useState} from "react";
 import CheckboxList from "../../ui/checkbox-list/checkbox-list";
 
-const Caption = ({children}) => {
-  return (
-    <p>
-      {children}
-    </p>
-  );
-}
-
 const Systems = ({
   modules,
   maxModules,
@@ -26,7 +18,7 @@ const Systems = ({
     const article = articles.join("_");
     const price =  selectModules.reduce((sum, item) =>  sum += item.price, 0);
 
-    onChange && onChange(article, price > 0 ? price + 1100000 : 0 );
+    onChange && onChange(article, price > 0 ? price : 0 );
   }
 
   return (
@@ -40,7 +32,6 @@ const Systems = ({
         maxModules={maxModules}
         uncheck={uncheck === 4}
       />
-      <Caption>Стоимость первой подключаемой системы 1 450 000 руб, остальные 350 000 руб.</Caption>
     </>
   );
 }
