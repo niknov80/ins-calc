@@ -4,9 +4,16 @@ import RadioButtonList from "../../ui/radio-button-list/radio-button-list";
 const Os = ({
   os,
   onChange,
-  typePlatform
+  typePlatform,
+  reset
 }) => {
   const [selectIds, setsSelectIds] = useState(os[0].id);
+
+  useEffect(() => {
+    if(reset) {
+      setsSelectIds(os[0].id)
+    }
+  }, [reset, os])
 
   const changeHandle = (evt) => {
     setsSelectIds(evt.target.value);

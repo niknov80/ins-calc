@@ -29,9 +29,20 @@ function CalcForm({
 
   useEffect(() => {
     const productArticle = `${platformArticle}(${osArticle ? "ОС_" + osArticle : "" }${systemArticle ? "/И_" + systemArticle : ""}${moduleArticle ? "/М_" + moduleArticle : "" })`
-    const productPrice = Number(platformPrice) +  Number(osPrice) +  Number(reset ? 0 : modulePrice) +  Number(reset ? 0 : systemPrice);
+    const productPrice = Number(platformPrice) +  Number(osPrice) +  Number(modulePrice) +  Number(systemPrice);
     onChange && onChange(productArticle, productPrice, namePlatform);
-  }, [platformArticle, osArticle, moduleArticle, systemArticle, modulePrice, namePlatform, onChange, osPrice, platformPrice, systemPrice, reset]);
+  }, [platformArticle, osArticle, moduleArticle, systemArticle, modulePrice, namePlatform, onChange, osPrice, platformPrice, systemPrice]);
+
+  useEffect(() => {
+    if(reset) {
+      setModuleArticle("")
+      setSystemArticle("")
+      setModulePrice("")
+      setSystemPrice("")
+      setOsArticle(os[0].article)
+      setOsPrice(os[0].price)
+    }
+  }, [reset, os]);
 
   const changePlatformHandler = (art, prc, name, tp, os) => {
     setPlatformArticle(art);
@@ -64,7 +75,7 @@ function CalcForm({
   return (
     <StyledDeviceList >
       <Platform platform={complexes} onChange={changePlatformHandler}/>
-      <Os typePlatform={typeOs} os={os} onChange={changeOsHandler} />
+      <Os reset={reset} typePlatform={typeOs} os={os} onChange={changeOsHandler} />
       <Modules reset={reset} uncheck={typePlatform} modules={modules} maxModules={MAX_MODULES} onChange={changeModuleHandler}/>
       <Systems reset={reset} uncheck={typePlatform} modules={systems} maxModules={MAX_SYSTEMS} onChange={changeSystemHandler}/>
     </StyledDeviceList>

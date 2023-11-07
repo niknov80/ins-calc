@@ -38,7 +38,7 @@ const Checkbox = ({
       }
       setChecked(false);
     }
-  }, [reset])
+  }, [reset, uncheck])
 
   useEffect(() => {
     if (isCheckDisable) {
