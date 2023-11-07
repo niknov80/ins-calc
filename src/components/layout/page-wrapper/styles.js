@@ -16,8 +16,8 @@ export const Wrapper = styled.div`
 `;
 
 export const MainWrapper = styled.div`
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 0;
+  padding-bottom: 0;
   display: grid;
   grid-template-columns: 2fr 1fr;
   column-gap: 3%;

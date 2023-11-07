@@ -6,7 +6,7 @@ function Footer() {
     <StyledSection as="footer">
       <Container>
         <FooterWrapper>
-          <span>v0.9.0</span>
+          <span>ООО "Квиксет" Комплексные поставки технических средств безопасности для выполнения монтажных работ на объекте.</span>
         </FooterWrapper>
       </Container>
     </StyledSection>
