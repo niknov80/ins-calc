@@ -1,9 +1,9 @@
 import React from "react";
 import {StyledProductCard, ProductOptionList, StyledTerm ,StyledDefinition} from "./styles";
 import Title, {TitleLevel} from "../../ui/title/title";
-import Button from "../../ui/button/button";
+// import Button from "../../ui/button/button";
 
-const ProductCard = ({price, article, name, setActive}) => {
+const ProductCard = ({price, article, name}) => {
   return (
     <StyledProductCard>
       <Title level={TitleLevel.H2} className={'list__title'}>Программно-аппаратный комплекс (ПАК) ИНСОНЕТ:</Title>
@@ -14,7 +14,7 @@ const ProductCard = ({price, article, name, setActive}) => {
         <StyledDefinition>{article || '<Not set>'}</StyledDefinition>
         <StyledTerm>Стоимость:</StyledTerm>
         <StyledDefinition>{price.toLocaleString('ru-RU') || '<Not set>'} руб.</StyledDefinition>
-        <Button as="button" onClick={() => setActive(true)}>Подробнее</Button>
+        {/*<Button as="button" onClick={() => setActive(true)}>Подробнее</Button>*/}
       </ProductOptionList>
 
     </StyledProductCard>
