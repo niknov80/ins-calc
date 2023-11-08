@@ -9,7 +9,7 @@ function RadioButtonList({
   selectValue,
   name,
   onChange,
-  typePlatform = "cln"
+  typePlatform
 }) {
 
   return (
@@ -25,7 +25,7 @@ function RadioButtonList({
             name={name}
             text={item.name}
             onChange={onChange}
-            isDisable={item.index < 200 || item.type === "all" ? false : typePlatform !== item.type}
+            isDisable={item.index < 200 || item.type === "all" || typePlatform === "all" ? false : typePlatform !== item.type}
           />
         ))}
       </StyledUl>

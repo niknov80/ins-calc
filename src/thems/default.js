@@ -8,8 +8,8 @@ export const defaultTheme = {
   colorForBorderList: 'rgba(32,70,105, 0.3)',
 
   colorForBgButton: 'rgba(252, 155, 39, 1)',
-  colorForButton: 'rgba(252, 155, 39, 1)',
-  colorForButtonHover: 'rgba(252, 116, 39, 1)',
+  colorForButton: 'rgba(32,70,105, 1)',
+  colorForButtonHover: 'rgb(24,52,79)',
   colorForBorderInput: 'rgba(0, 0, 0, 0.1)',
   colorForBgInput: 'rgba(246, 246, 246, 1)',
 
