@@ -23,7 +23,7 @@ const Os = ({
 
   return (
     <RadioButtonList
-      listName={"Выберите аппаратную платформу"}
+      listName={"Выберите операционную систему"}
       options={os}
       name={"os"}
       selectValue={selectIds}

@@ -1,11 +1,12 @@
 export const defaultTheme = {
-  colorTextDefault: 'rgb(102, 102, 102)',
+  colorTextDefault: '#ffffff',
   colorHeaderDefault: 'rgb(34, 34, 34)',
   colorWhite: '#ffffff',
   colorBg: 'rgba(24, 24, 24, 1)',
-  colorBgListHeader: 'rgba(32,70,105, 1)',
+  colorBgListHeader: '#a77ab3',
+  colorBgList: 'rgba(167,122,179,0.3)',
 
-  colorForBorderList: 'rgba(32,70,105, 0.3)',
+  colorForBorderList: 'none',
 
   colorForBgButton: 'rgba(252, 155, 39, 1)',
   colorForButton: 'rgba(32,70,105, 1)',
@@ -14,15 +15,16 @@ export const defaultTheme = {
   colorForBgInput: 'rgba(246, 246, 246, 1)',
 
   pageWidth: '1920px',
-  pagePadding: '50px',
-  fontFamily: '"Arial", sans-serif',
-  fontSize: '16px',
+  pagePaddingLeft: '205px',
+  pagePaddingRight: '240px',
+  fontFamily: '"Arimo", "Arial", sans-serif',
+  fontSize: '12px',
   lineHeight: '1.2rem',
   fontWeight: '400',
 
-  paddingHeader: '0.5em 1em',
-  borderRadiusForList: '5px',
-  boxShadow: '4px 4px 8px 0 rgba(34, 60, 80, 0.2)',
+  paddingHeader: '0',
+  borderRadiusForList: '0',
+  boxShadow: 'none',
 
   desktopWidth: '1920px',
   tabletWidth: '1200px',

@@ -4,10 +4,10 @@ import {Label, Toggler} from "../../styled";
 export const StyledRadioButton = styled(Toggler)`
   & label {
     span {
-      border-radius: 50%;
+      //border-radius: 50%;
       
       &::before {
-        border-radius: 50%;        
+        //border-radius: 50%;        
     }
   }
 `;

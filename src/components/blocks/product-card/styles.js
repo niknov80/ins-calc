@@ -12,6 +12,7 @@ export const StyledProductCard = styled.div`
   padding-bottom: 10px;
   box-shadow: ${(props) => props.theme.boxShadow};
   overflow: hidden;
+  background-color: ${(props) => props.theme.colorBgList};
 
   @media (max-width: ${(props) => props.theme.mobileWidth}) {
     align-self: stretch;
@@ -26,6 +27,7 @@ export const ProductOptionList = styled.dl`
   column-gap: 20px;
   row-gap: 10px;
   margin: 0 0 0 20px;
+   
 `;
 
 export const StyledTerm = styled.dt`

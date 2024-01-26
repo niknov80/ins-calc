@@ -8,7 +8,7 @@ const Toggler = styled(Li)`
   & p {
     margin-top: 0;
     margin-bottom: 0;
-    padding-top: 2px;
+    padding-top: 0;
 
     @media(max-width: ${(props) => props.theme.mobileWidth}) {
       padding-top: 0;
@@ -32,34 +32,35 @@ const Toggler = styled(Li)`
       margin-left: 0;
       order: -1;
 
-      width: 20px;
-      height: 20px;
+      width: 14px;
+      height: 14px;
 
-      border: 1px solid ${(props) => props.theme.colorBgListHeader};
+      border: 2px solid ${(props) => props.theme.colorBgListHeader};
       transition: border 0.3s ease;
       
       &::before {
         content: "";
-        width: 16px;
+        width: 10px;
         height: 16px;
 
-        background-color: ${(props) => props.theme.colorWhite};
+        //background-color: ${(props) => props.theme.colorWhite};
         transition: background-color 0.3s ease;
       }
     }
   }
   
   & input:checked + span {
-    border: 1px solid ${(props) => props.theme.colorBgListHeader};
+    border: 2px solid ${(props) => props.theme.colorBgListHeader};
 
     &::before {
-      background-color: ${(props) => props.theme.colorBgListHeader};
+      content: "\\2713";
+      //background-color: ${(props) => props.theme.colorBgListHeader};
     }
   }
   
   & input:disabled + span,
   & input:disabled ~ div{
-    opacity: 0.5;
+    opacity: 0.3;
   }
 `;
 

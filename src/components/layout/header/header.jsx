@@ -1,8 +1,8 @@
 import React from "react";
 import {HeaderWrapper, StyledSection} from "./styles";
 import Logo from "../../ui/logo/logo";
-import Title, {TitleLevel, TitleSize} from "../../ui/title/title";
 import {Container} from "../../styled";
+import MainMenu from "../../blocks/main-menu/main-menu";
 
 function Header() {
   return (
@@ -10,7 +10,7 @@ function Header() {
       <Container>
         <HeaderWrapper>
           <Logo />
-          <Title level={TitleLevel.H1} size={TitleSize.BIG}>Калькулятор ПАК ИНСОНЕТ</Title>
+          <MainMenu/>
         </HeaderWrapper>
       </Container>
     </StyledSection>
