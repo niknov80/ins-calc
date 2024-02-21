@@ -29,7 +29,7 @@ const Systems = ({
   return (
     <>
       <CheckboxList
-        listName={"Выберите подключаемую систему (до 5-и систем)"}
+        listName={"Выберите подключаемую систему (до 3-х систем)"}
         nameList="system"
         options={modules}
         selectValues={selectIds}

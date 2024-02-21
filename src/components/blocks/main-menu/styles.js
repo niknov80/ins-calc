@@ -4,7 +4,8 @@ export const StuledMenuList = styled.ul`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 65px;
+    column-gap: 65px;
+    row-gap: 30px;
     padding-left: 0;
     margin-top: 0;
     margin-bottom: 0;
