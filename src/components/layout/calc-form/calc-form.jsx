@@ -25,49 +25,77 @@ function CalcForm({
 
   const [namePlatform, setNamePlatform] = useState(complexes[0].name);
 
+  const [platformPpo, setPlatformPpo] = useState(complexes[0].ppo);
+  const [osPpo, setOsPpo] = useState(os[0].id);
+  const [modulePpo, setModulePpo] = useState("");
+  const [systemPpo, setSystemPpo] = useState("");
+
   const [reset, setReset] = useState(false);
 
   useEffect(() => {
+    const productPpo = `В составе: ${(osPpo.toUpperCase())}, ${platformPpo} ${modulePpo ? ", " + modulePpo : ""} ${systemPpo ? ", " + systemPpo + "." : "."}`;
     const productArticle = `${platformArticle}(${osArticle ? "ОС_" + osArticle : "" }${systemArticle ? "/И_" + systemArticle : ""}${moduleArticle ? "/М_" + moduleArticle : "" })`
     const productPrice = Number(platformPrice) +  Number(osPrice) +  Number(modulePrice) +  Number(systemPrice);
-    onChange && onChange(productArticle, productPrice, namePlatform);
-  }, [platformArticle, osArticle, moduleArticle, systemArticle, modulePrice, namePlatform, onChange, osPrice, platformPrice, systemPrice]);
+    onChange && onChange(productArticle, productPrice, namePlatform, productPpo);
+  }, [
+    platformArticle,
+    osArticle,
+    moduleArticle,
+    systemArticle,
+    modulePrice,
+    namePlatform,
+    onChange,
+    osPrice,
+    platformPrice,
+    systemPrice,
+    platformPpo,
+    osPpo,
+    modulePpo,
+    systemPpo
+  ]);
 
   useEffect(() => {
     if(reset) {
-      setModuleArticle("")
-      setSystemArticle("")
-      setModulePrice("")
-      setSystemPrice("")
-      setOsArticle(os[0].article)
-      setOsPrice(os[0].price)
+      setModuleArticle("");
+      setSystemArticle("");
+      setModulePrice("");
+      setSystemPrice("");
+      setOsArticle(os[0].article);
+      setOsPrice(os[0].price);
+      setOsPpo(os[0].id);
+      setModulePpo("");
+      setSystemPpo("");
     }
   }, [reset, os]);
 
-  const changePlatformHandler = (art, prc, name, tp, os) => {
+  const changePlatformHandler = (art, prc, name, tp, os, ppo) => {
     setPlatformArticle(art);
     setPlatformPrice(prc);
     setNamePlatform(name);
     setTypePlatform(tp);
     setTypeOs(os);
+    setPlatformPpo(ppo);
     setReset(true);
   }
 
-  const changeOsHandler = (art, prc) => {
+  const changeOsHandler = (art, prc, ppo) => {
     setOsArticle(art);
     setOsPrice(prc);
+    setOsPpo(ppo);
     setReset(false);
   }
 
-  const changeModuleHandler = (art, prc) => {
+  const changeModuleHandler = (art, prc, ppo) => {
     setModuleArticle(art);
     setModulePrice(prc);
+    setModulePpo(ppo);
     setReset(false);
   }
 
-  const changeSystemHandler = (art, prc) => {
+  const changeSystemHandler = (art, prc, ppo) => {
     setSystemArticle(art);
     setSystemPrice(prc);
+    setSystemPpo(ppo);
     setReset(false);
   }
 

@@ -14,7 +14,7 @@ export const StyledProductCard = styled.div`
   overflow: hidden;
   background-color: ${(props) => props.theme.colorBgList};
 
-  @media (max-width: ${(props) => props.theme.mobileWidth}) {
+  @media (max-width: ${(props) => props.theme.tabletWidth}) {
     align-self: stretch;
     position: unset;
     order: -1;

@@ -18,12 +18,15 @@ const Modules = ({
     setsSelectIds(value);
     const selectModules = value.map((id) => modules.find((item) => item.index === id));
     const articles = [];
+    const ids = [];
     selectModules.forEach((item) => {
       articles.push(item.article);
+      ids.push((item.id).toUpperCase());
     })
     const article = articles.join("_");
     const price = selectModules.reduce((sum, item) =>  sum += item.price, 0);
-    onChange && onChange(article, price);
+    const fullId = ids.join(", ");
+    onChange && onChange(article, price, fullId);
   }
 
   return (

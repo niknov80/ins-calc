@@ -18,7 +18,8 @@ const Os = ({
   const changeHandle = (evt) => {
     setsSelectIds(evt.target.value);
     const selectOs =  os.find((item) => item.id === evt.target.value);
-    onChange && onChange(selectOs.article, selectOs.price);
+    const fullId = (selectOs.id).toUpperCase();
+    onChange && onChange(selectOs.article, selectOs.price, fullId);
   }
 
   return (

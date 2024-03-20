@@ -17,6 +17,8 @@ export const defaultTheme = {
   pageWidth: '1920px',
   pagePaddingLeft: '205px',
   pagePaddingRight: '240px',
+  pagePaddingLaptopLeft: '60px',
+  pagePaddingLaptopRight: '60px',
   fontFamily: '"Arimo", "Arial", sans-serif',
   fontSize: '12px',
   lineHeight: '1.2rem',
@@ -27,7 +29,9 @@ export const defaultTheme = {
   boxShadow: 'none',
 
   desktopWidth: '1920px',
-  tabletWidth: '1200px',
+  laptopLWidth: '1366px',
+  laptopWidth: '1200px',
+  tabletWidth: '1024px',
   mobileWidth: '768px',
 
   pagePaddingMobile: '3%'

@@ -14,12 +14,13 @@ function PageWrapper({calcData}) {
   const [price, setPrice] = useState("");
   const [name, setName] = useState("");
   const [modalActive, setModalActive] = useState(false);
-  const handleChange = (art, prc, name) => {
+  const [ppo, setPpo] = useState("")
+  const handleChange = (art, prc, name, ppo) => {
     setArticle(art);
     setPrice(prc);
     setName(name);
+    setPpo(ppo);
   }
-
 
   return (
     <Wrapper>
@@ -29,7 +30,7 @@ function PageWrapper({calcData}) {
           <Title className={"header"} level={TitleLevel.H1} size={TitleSize.BIG}>Подберите конфигурацию<br/><span>ПАК ИнсоНет</span></Title>
           <MainWrapper>
             <CalcForm calcData={calcData} onChange={handleChange}/>
-            <ProductCard article={article} price={price} name={name} setActive={setModalActive}/>
+            <ProductCard article={article} price={price} name={name} setActive={setModalActive} ppo={ppo}/>
           </MainWrapper>
         </Container>
       </Main>

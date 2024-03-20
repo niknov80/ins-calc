@@ -27,11 +27,23 @@ export const MainWrapper = styled.div`
   grid-template-columns: 68% 30%;
   column-gap: 2%;
 
-  @media (max-width: ${(props) => props.theme.mobileWidth}) {
-    display: flex;
-    flex-direction: column;
-    padding-top: 0;
-    padding-bottom: 0;
-    row-gap: 30px;
+  @media (max-width: ${(props) => props.theme.laptopLWidth}) {
+      grid-template-columns: 58% 40%;
   }
+
+  @media (max-width: ${(props) => props.theme.laptopWidth}) {
+      grid-template-columns: 49% 49%;
+  }
+
+  @media (max-width: ${(props) => props.theme.tabletWidth}) {
+      display: flex;
+      flex-direction: column;
+      padding-top: 0;
+      padding-bottom: 0;
+      row-gap: 30px;
+  }
+  //
+  // @media (max-width: ${(props) => props.theme.mobileWidth}) {
+  //   flex-direction: column;
+  // }
 `;

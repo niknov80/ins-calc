@@ -10,7 +10,7 @@ const Platform = ({
   const changeHandle = (evt) => {
     setsSelectIds(evt.target.value);
     const selectPlatform =  platform.find((item) => item.id === evt.target.value);
-    onChange && onChange(selectPlatform.article, selectPlatform.price, selectPlatform.name, selectPlatform.type, selectPlatform.typeOs);
+    onChange && onChange(selectPlatform.article, selectPlatform.price, selectPlatform.name, selectPlatform.type, selectPlatform.typeOs, selectPlatform.ppo);
   }
 
   return (

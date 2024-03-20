@@ -7,12 +7,12 @@ export const StyledSection= styled(Section)`
   margin: 0 auto;
   padding-top: 0;
   padding-bottom: 0;
-  //background-color: ${(props) => props.theme.colorBg};
   color: ${(props) => props.theme.colorWhite};
 `;
 
 export const HeaderWrapper = styled.div`
   display: flex;
+  position: relative;
   gap: 25px;
   justify-content: space-between;
   padding-top: 45px;

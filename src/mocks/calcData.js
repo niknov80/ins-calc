@@ -6,6 +6,7 @@ export const calcData = {
       "price": 3120000,
       "description": "Описание Сервер БД",
       "id": "ins-s",
+      "ppo": "INS-00, INS-SMS",
       "index": 101,
       "type": 1,
       "typeOs": "srv"
@@ -16,6 +17,7 @@ export const calcData = {
       "price": 4530000,
       "description": "Описание Сервер БД повышенной надежности",
       "id": "ins-sp",
+      "ppo": "INS-00, INS-SMS",
       "index": 102,
       "type": 2,
       "typeOs": "srv"
@@ -26,6 +28,7 @@ export const calcData = {
       "price": 2650000,
       "description": "Описание блока сопряжения",
       "id": "ins-bs",
+      "ppo": "INS-REZ",
       "index": 103,
       "type": 3,
       "typeOs": "all"
@@ -36,6 +39,7 @@ export const calcData = {
       "price": 890000,
       "description": "Описание АРМ",
       "id": "ins-a",
+      "ppo": "INS-OPER",
       "index": 104,
       "type": 4,
       "typeOs": "cln"
@@ -47,7 +51,7 @@ export const calcData = {
       "article": "0",
       "price": 0,
       "description": "Без операционной системы",
-      "id": "noos",
+      "id": "no-os",
       "index": 201,
       "type": "all"
     },

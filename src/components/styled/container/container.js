@@ -8,10 +8,15 @@ const Container = styled.div`
   margin-left: auto;
   margin-right: auto;
 
+  @media(max-width: ${(props) => props.theme.laptopLWidth}) {
+      padding-left: ${(props) => props.theme.pagePaddingLaptopLeft};
+      padding-right: ${(props) => props.theme.pagePaddingLaptopRight};
+      width: 94%;
+  }
+
   @media(max-width: ${(props) => props.theme.mobileWidth}) {
     padding-left: ${(props) => props.theme.pagePaddingMobile};
     padding-right: ${(props) => props.theme.pagePaddingMobile};
-    width: 94%;
   }
 `;
 

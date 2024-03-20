@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import StyledLink from "../../ui/link/styles";
 export const StuledMenuList = styled.ul`
+    
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -9,6 +10,15 @@ export const StuledMenuList = styled.ul`
     padding-left: 0;
     margin-top: 0;
     margin-bottom: 0;
+
+    @media(max-width: ${(props) => props.theme.tabletWidth}) {
+      display: none;
+      
+    };
+
+    &.show-menu {
+        display: flex;
+    }
 `;
 
 export const StuledMenuItem = styled.li`
@@ -33,4 +43,34 @@ export const StyledMenuLink = styled(StyledLink)`
     &:hover{
       background-size: 100% 1px;
     }
+`;
+
+export const Burger = styled.button`
+  display: none;
+  border: none;
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background-color: transparent;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+
+  @media(max-width: ${(props) => props.theme.tabletWidth}) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::before {
+        content: "\\2630";
+        color: white;
+        font-size: 32px;
+    }
+
+    &.show-menu {
+        &::before {
+            content: "\\2716";            
+        }
+    }
+  };
 `;
