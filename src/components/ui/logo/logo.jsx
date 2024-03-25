@@ -5,7 +5,7 @@ import StyledLogo from "./styles";
 
 const Logo = () => {
   return (
-    <StyledLogo href="/">
+    <StyledLogo href="https://quick-set.ru/">
       <img
         src={logoImage}
         alt={"Логотип"}

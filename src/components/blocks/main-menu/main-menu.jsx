@@ -19,7 +19,7 @@ const MainMenu = () => {
       <Burger className={isMenuOpened} type="button" aria-label="Открыть меню" onClick={clickBurgerHandler}/>
       <StuledMenuList className={isMenuOpened}>
         <StuledMenuItem>
-          <StyledMenuLink href="#">Главная</StyledMenuLink>
+          <StyledMenuLink href="https://quick-set.ru/">Главная</StyledMenuLink>
         </StuledMenuItem>
         <StuledMenuItem>
           <StyledMenuLink href="https://quick-set.ru/#device">Оборудование</StyledMenuLink>
