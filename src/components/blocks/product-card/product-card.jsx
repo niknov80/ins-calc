@@ -3,7 +3,7 @@ import {StyledProductCard, ProductOptionList, StyledTerm ,StyledDefinition} from
 import Title, {TitleLevel} from "../../ui/title/title";
 import Button from "../../ui/button/button";
 
-const ProductCard = ({price, article, name, setActive, ppo}) => {
+const ProductCard = ({isWindows, price, article, name, setActive, ppo}) => {
   const isShowButton = false;
   return (
     <StyledProductCard>
@@ -15,6 +15,8 @@ const ProductCard = ({price, article, name, setActive, ppo}) => {
         <StyledDefinition>{article || '<Not set>'}</StyledDefinition>
         <StyledTerm>Стоимость:</StyledTerm>
         <StyledDefinition>{price.toLocaleString('ru-RU') || '<Not set>'} руб.</StyledDefinition>
+        {isWindows && <StyledTerm className="attention">Внимание</StyledTerm>}
+        {isWindows && <StyledDefinition className="attention">Необходимо уточнить цену на windows</StyledDefinition>}
         {isShowButton && <Button as="button" onClick={() => setActive(true)}>Подробнее</Button>}
       </ProductOptionList>
 

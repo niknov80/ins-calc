@@ -13,6 +13,7 @@ export const StyledProductCard = styled.div`
   box-shadow: ${(props) => props.theme.boxShadow};
   overflow: hidden;
   background-color: ${(props) => props.theme.colorBgList};
+  
 
   @media (max-width: ${(props) => props.theme.tabletWidth}) {
     align-self: stretch;
@@ -33,9 +34,17 @@ export const ProductOptionList = styled.dl`
 export const StyledTerm = styled.dt`
   margin: 0;
   line-height: 20px;
+  &.attention {
+      color: #ff8686;
+  }
 `;
 
 export const StyledDefinition = styled.dd`
   margin: 0;
   line-height: 20px;
+    
+  &.attention {
+    color: #ff8686;
+  }
 `;
+

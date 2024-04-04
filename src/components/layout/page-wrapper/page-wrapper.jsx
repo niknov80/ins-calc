@@ -15,7 +15,9 @@ function PageWrapper({calcData}) {
   const [name, setName] = useState("");
   const [modalActive, setModalActive] = useState(false);
   const [ppo, setPpo] = useState("")
+  const [isWindowsChecked, setIsWindowsChecked] = useState(false);
   const handleChange = (art, prc, name, ppo) => {
+    setIsWindowsChecked(ppo.includes("WIN"));
     setArticle(art);
     setPrice(prc);
     setName(name);
@@ -30,7 +32,7 @@ function PageWrapper({calcData}) {
           <Title className={"header"} level={TitleLevel.H1} size={TitleSize.BIG}>Подберите конфигурацию<br/><span>ПАК ИнсоНет</span></Title>
           <MainWrapper>
             <CalcForm calcData={calcData} onChange={handleChange}/>
-            <ProductCard article={article} price={price} name={name} setActive={setModalActive} ppo={ppo}/>
+            <ProductCard isWindows={isWindowsChecked} article={article} price={price} name={name} setActive={setModalActive} ppo={ppo}/>
           </MainWrapper>
         </Container>
       </Main>

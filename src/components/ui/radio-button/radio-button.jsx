@@ -11,6 +11,7 @@ function RadioButton({
   isDisable
 }) {
   const isChecked = value === selectValue;
+  const priceText = value === "win-cln" || value === "win-srv" ? "По запросу"  : `${price.toLocaleString('ru-RU')} руб.`
 
   return (
     <StyledRadioButton>
@@ -26,7 +27,7 @@ function RadioButton({
         <span></span>
         <StyledText>
           <p>{text}</p>
-          <p>{price.toLocaleString('ru-RU')} руб.</p>
+          <p>{priceText}</p>
         </StyledText>
       </label>
     </StyledRadioButton>
