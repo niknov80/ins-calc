@@ -23,6 +23,7 @@ const Modules = ({
       articles.push(item.article);
       ids.push((item.id).toUpperCase());
     })
+    console.log(ids);
     const article = articles.join("_");
     const price = selectModules.reduce((sum, item) =>  sum += item.price, 0);
     const fullId = ids.join(", ");

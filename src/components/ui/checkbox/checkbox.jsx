@@ -11,7 +11,8 @@ const Checkbox = ({
   price, // цена
   onChange, // событие при изменении
   uncheck,
-  reset
+  reset,
+  selected
 }) => {
 
   const [checked, setChecked] = useState(isChecked);
@@ -21,6 +22,15 @@ const Checkbox = ({
     setChecked(!checked)
     onChange && onChange(index)
   }
+
+  useEffect(() => {
+    if (selected === true && index === 400){
+      setChecked(true)
+    }
+    if (selected === false && index === 400){
+      setChecked(false)
+    }
+  }, [selected, reset]);
 
   useEffect(() => {
     if (uncheck) {
@@ -37,6 +47,9 @@ const Checkbox = ({
         setDisable(false);
       }
       setChecked(false);
+      if(index === 400) {
+        setDisable(true);
+      }
     }
   }, [reset, uncheck])
 
@@ -45,6 +58,9 @@ const Checkbox = ({
       setDisable(!checked);
     } else {
       setDisable(false);
+    }
+    if(index === 400) {
+      setDisable(true);
     }
     // eslint-disable-next-line
   }, [isCheckDisable])

@@ -9,7 +9,7 @@ function CalcForm({
   onChange
 }) {
   const MAX_MODULES = 5 // максимальное количество модулей
-  const MAX_SYSTEMS = 3 // максимальное количество подключаемых систем
+  const MAX_SYSTEMS = 5 // максимальное количество подключаемых систем
 
   const [platformArticle, setPlatformArticle] = useState(complexes[0].article);
   const [osArticle, setOsArticle] = useState(os[0].article);

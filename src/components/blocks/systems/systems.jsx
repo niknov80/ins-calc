@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import CheckboxList from "../../ui/checkbox-list/checkbox-list";
+import Checkbox from "../../ui/checkbox/checkbox";
 
 const Systems = ({
   modules,
@@ -12,6 +13,7 @@ const Systems = ({
   useEffect(() => {
     if (reset) {
       setsSelectIds([]);
+      console.log(selectIds);
     }
   }, [reset]);
   const changeHandler = (value) => {

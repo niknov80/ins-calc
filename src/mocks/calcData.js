@@ -141,6 +141,15 @@ export const calcData = {
   ],
   "systems": [
     {
+      "name": "Первый модуль",
+      "article": "00",
+      "price": 350000,
+      "description": "Описание модуля",
+      "id": "ins-ss-first",
+      "index": 400,
+      "isChecked": false
+    },
+    {
       "name": "Модуль интеграции \"Стрелец-Интеграл\" INS-SS-SI",
       "article": "01",
       "price": 350000,
