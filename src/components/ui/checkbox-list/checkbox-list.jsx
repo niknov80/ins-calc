@@ -1,6 +1,5 @@
 import React from "react";
 import Checkbox from "../checkbox/checkbox";
-import {appStore} from "../../../stores";
 
 import Title, {TitleLevel} from "../title/title";
 import {StyledCheckboxList, StyledUl} from "./styles";

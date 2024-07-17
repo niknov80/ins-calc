@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import CheckboxList from "../../ui/checkbox-list/checkbox-list";
 import {appStore} from "../../../stores";
 import {observer} from "mobx-react-lite";
