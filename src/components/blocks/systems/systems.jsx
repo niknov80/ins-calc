@@ -1,34 +1,16 @@
 import React, {useState, useEffect} from "react";
 import CheckboxList from "../../ui/checkbox-list/checkbox-list";
-import Checkbox from "../../ui/checkbox/checkbox";
+import {appStore} from "../../../stores";
+import {observer} from "mobx-react-lite";
 
 const Systems = ({
   modules,
-  maxModules,
-  onChange,
-  uncheck,
-  reset
+  maxModules
 }) => {
-  const [selectIds, setsSelectIds] = useState([]);
-  useEffect(() => {
-    if (reset) {
-      setsSelectIds([]);
-      console.log(selectIds);
-    }
-  }, [reset]);
-  const changeHandler = (value) => {
-    setsSelectIds(value);
+    const changeHandler = (value) => {
     const selectModules = value.map((id) => modules.find((item) => item.index === id));
-    const articles = [];
-    const ids = []
-    selectModules.forEach((item) => {
-      articles.push(item.article);
-      ids.push((item.id).toUpperCase());
-    })
-    const article = articles.join("_");
-    const fullId = ids.join(", ");
-    const price =  selectModules.reduce((sum, item) =>  sum += item.price, 0);
-    onChange && onChange(article, price > 0 ? price : 0, fullId );
+    appStore.addSystems(selectModules);
+    appStore.calcPakAttributes();
   }
 
   return (
@@ -37,14 +19,13 @@ const Systems = ({
         listName={"Выберите подключаемую систему (до 3-х систем)"}
         nameList="system"
         options={modules}
-        selectValues={selectIds}
+        selectValues={appStore.getSystemsId}
         onChange={changeHandler}
         maxModules={maxModules}
-        uncheck={uncheck === 4}
-        reset={reset}
+        uncheck={appStore.getTypePlatform === 4}
       />
     </>
   );
 }
 
-export default Systems;
+export default observer (Systems);

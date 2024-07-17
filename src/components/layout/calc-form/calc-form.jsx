@@ -1,113 +1,25 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import Modules from "../../blocks/modules/modules";
 import Systems from "../../blocks/systems/systems";
 import Platform from "../../blocks/platform/platform";
 import Os from "../../blocks/os/os";
 import {StyledDeviceList} from "./styles";
-function CalcForm({
-  calcData: {complexes = [], os = [], modules = [], systems = []},
-  onChange
-}) {
+import {observer} from "mobx-react-lite";
+
+const CalcForm = ({
+  calcData: {complexes = [], os = [], modules = [], systems = []}
+}) =>  {
   const MAX_MODULES = 5 // максимальное количество модулей
-  const MAX_SYSTEMS = 5 // максимальное количество подключаемых систем
-
-  const [platformArticle, setPlatformArticle] = useState(complexes[0].article);
-  const [osArticle, setOsArticle] = useState(os[0].article);
-  const [moduleArticle, setModuleArticle] = useState("");
-  const [systemArticle, setSystemArticle] = useState("");
-
-  const [platformPrice, setPlatformPrice] = useState(complexes[0].price);
-  const [osPrice, setOsPrice] = useState(os[0].price);
-  const [modulePrice, setModulePrice] = useState("");
-  const [systemPrice, setSystemPrice] = useState("");
-  const [typePlatform, setTypePlatform] = useState(complexes[0].type);
-  const [typeOs, setTypeOs] = useState(complexes[0].typeOs);
-
-  const [namePlatform, setNamePlatform] = useState(complexes[0].name);
-
-  const [platformPpo, setPlatformPpo] = useState(complexes[0].ppo);
-  const [osPpo, setOsPpo] = useState(os[0].id);
-  const [modulePpo, setModulePpo] = useState("");
-  const [systemPpo, setSystemPpo] = useState("");
-
-  const [reset, setReset] = useState(false);
-
-  useEffect(() => {
-    const productPpo = `В составе: ${(osPpo.toUpperCase())}, ${platformPpo} ${modulePpo ? ", " + modulePpo : ""} ${systemPpo ? ", " + systemPpo + "." : "."}`;
-    const productArticle = `${platformArticle}(${osArticle ? "ОС_" + osArticle : "" }${systemArticle ? "/И_" + systemArticle : ""}${moduleArticle ? "/М_" + moduleArticle : "" })`
-    const productPrice = Number(platformPrice) +  Number(osPrice) +  Number(modulePrice) +  Number(systemPrice);
-    onChange && onChange(productArticle, productPrice, namePlatform, productPpo);
-  }, [
-    platformArticle,
-    osArticle,
-    moduleArticle,
-    systemArticle,
-    modulePrice,
-    namePlatform,
-    onChange,
-    osPrice,
-    platformPrice,
-    systemPrice,
-    platformPpo,
-    osPpo,
-    modulePpo,
-    systemPpo
-  ]);
-
-  useEffect(() => {
-    if(reset) {
-      setModuleArticle("");
-      setSystemArticle("");
-      setModulePrice("");
-      setSystemPrice("");
-      setOsArticle(os[0].article);
-      setOsPrice(os[0].price);
-      setOsPpo(os[0].id);
-      setModulePpo("");
-      setSystemPpo("");
-    }
-  }, [reset, os]);
-
-  const changePlatformHandler = (art, prc, name, tp, os, ppo) => {
-    setPlatformArticle(art);
-    setPlatformPrice(prc);
-    setNamePlatform(name);
-    setTypePlatform(tp);
-    setTypeOs(os);
-    setPlatformPpo(ppo);
-    setReset(true);
-  }
-
-  const changeOsHandler = (art, prc, ppo) => {
-    setOsArticle(art);
-    setOsPrice(prc);
-    setOsPpo(ppo);
-    setReset(false);
-  }
-
-  const changeModuleHandler = (art, prc, ppo) => {
-    setModuleArticle(art);
-    setModulePrice(prc);
-    setModulePpo(ppo);
-    setReset(false);
-  }
-
-  const changeSystemHandler = (art, prc, ppo) => {
-    setSystemArticle(art);
-    setSystemPrice(prc);
-    setSystemPpo(ppo);
-    setReset(false);
-  }
-
+  const MAX_SYSTEMS = 3 // максимальное количество подключаемых систем
 
   return (
     <StyledDeviceList >
-      <Platform platform={complexes} onChange={changePlatformHandler}/>
-      <Os reset={reset} typePlatform={typeOs} os={os} onChange={changeOsHandler} />
-      <Modules reset={reset} uncheck={typePlatform} modules={modules} maxModules={MAX_MODULES} onChange={changeModuleHandler}/>
-      <Systems reset={reset} uncheck={typePlatform} modules={systems} maxModules={MAX_SYSTEMS} onChange={changeSystemHandler}/>
+      <Platform platform={complexes} />
+      <Os os={os} />
+      <Modules modules={modules} maxModules={MAX_MODULES} />
+      <Systems modules={systems} maxModules={MAX_SYSTEMS + 1} />
     </StyledDeviceList>
   );
 }
 
-export default CalcForm;
+export default observer (CalcForm);

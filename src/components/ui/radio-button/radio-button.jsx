@@ -1,5 +1,6 @@
 import {StyledRadioButton, StyledText} from "./styled";
 import {VisuallyHiddenInput} from "../../styled";
+import {observer} from "mobx-react-lite";
 
 function RadioButton({
   selectValue,
@@ -11,8 +12,8 @@ function RadioButton({
   isDisable
 }) {
   const isChecked = value === selectValue;
-  const priceText = value === "win-cln" || value === "win-srv" ? "По запросу"  : `${price.toLocaleString('ru-RU')} руб.`
-
+  const priceText = value.includes('win') ? "По запросу"  : `${price.toLocaleString('ru-RU')} руб.`
+  console.log(onChange);
   return (
     <StyledRadioButton>
       <label>
@@ -33,4 +34,4 @@ function RadioButton({
     </StyledRadioButton>
   );
 }
-export default RadioButton;
+export default observer (RadioButton);

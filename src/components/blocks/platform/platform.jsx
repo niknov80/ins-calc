@@ -1,16 +1,20 @@
-import React, {useState} from "react";
+import React, {useEffect} from "react";
 import RadioButtonList from "../../ui/radio-button-list/radio-button-list";
+import {appStore} from "../../../stores";
+import {observer} from "mobx-react-lite";
 
 const Platform = ({
-  platform,
-  onChange
+  platform
 }) => {
-  const [selectIds, setsSelectIds] = useState(platform[0].id);
+  useEffect(() => {
+    appStore.setSelectedPlatform(platform.find((item) => item.id === platform[0].id));
+  }, []);
 
   const changeHandle = (evt) => {
-    setsSelectIds(evt.target.value);
     const selectPlatform =  platform.find((item) => item.id === evt.target.value);
-    onChange && onChange(selectPlatform.article, selectPlatform.price, selectPlatform.name, selectPlatform.type, selectPlatform.typeOs, selectPlatform.ppo);
+    appStore.setSelectedPlatform(selectPlatform);
+    appStore.reset();
+    appStore.calcPakAttributes();
   }
 
   return (
@@ -18,10 +22,10 @@ const Platform = ({
       listName={"Выберите аппаратную платформу"}
       options={platform}
       name={"platform"}
-      selectValue={selectIds}
+      selectValue={appStore.getPlatformId}
       onChange={changeHandle}
     />
   )
 }
 
-export default Platform;
+export default observer (Platform);
