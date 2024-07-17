@@ -1,32 +1,16 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import CheckboxList from "../../ui/checkbox-list/checkbox-list";
+import {appStore} from "../../../stores";
+import {observer} from "mobx-react-lite";
 
 const Modules = ({
   modules,
-  maxModules,
-  onChange,
-  uncheck,
-  reset
+  maxModules
 }) => {
-  const [selectIds, setsSelectIds] = useState([]);
-  useEffect(() => {
-    if (reset) {
-      setsSelectIds([]);
-    }
-  }, [reset]);
   const changeHandler = (value) => {
-    setsSelectIds(value);
     const selectModules = value.map((id) => modules.find((item) => item.index === id));
-    const articles = [];
-    const ids = [];
-    selectModules.forEach((item) => {
-      articles.push(item.article);
-      ids.push((item.id).toUpperCase());
-    })
-    const article = articles.join("_");
-    const price = selectModules.reduce((sum, item) =>  sum += item.price, 0);
-    const fullId = ids.join(", ");
-    onChange && onChange(article, price, fullId);
+    appStore.addModule(selectModules);
+    appStore.calcPakAttributes();
   }
 
   return (
@@ -34,13 +18,12 @@ const Modules = ({
       listName={"Выберите программный модуль"}
       nameList="module"
       options={modules}
-      selectValues={selectIds}
+      selectValues={appStore.getModulesId}
       onChange={changeHandler}
       maxModules={maxModules}
-      uncheck={uncheck === 3}
-      reset={reset}
+      uncheck={appStore.getTypePlatform === 3}
     />
   );
 }
 
-export default Modules;
+export default observer (Modules);
