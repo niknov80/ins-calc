@@ -150,7 +150,7 @@ export const calcData = {
   ],
   "systems": [
     {
-      "name": "Первый модуль",
+      "name": "*Первый модуль",
       "article": "00",
       "price": 350000,
       "description": "Описание модуля",

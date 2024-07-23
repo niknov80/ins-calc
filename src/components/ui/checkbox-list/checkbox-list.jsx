@@ -4,6 +4,7 @@ import Checkbox from "../checkbox/checkbox";
 import Title, {TitleLevel} from "../title/title";
 import {StyledCheckboxList, StyledUl} from "./styles";
 import {observer} from "mobx-react-lite";
+import Paragraph from "../paragrraph/paragraph";
 
 const CheckboxList = ({
   listName, // Заголовок списка
@@ -12,7 +13,8 @@ const CheckboxList = ({
   nameList, // имя
   onChange, // событие при изменении
   maxModules,
-  uncheck
+  uncheck,
+  desc = ''
 }) => {
   const changeHandler = (value) => {
     const newValue = [...selectValues];
@@ -37,6 +39,7 @@ const CheckboxList = ({
   return (
     <StyledCheckboxList>
       <Title level={TitleLevel.H2} className={"list__title"}>{listName}</Title>
+      {desc !== '' && <Paragraph>{desc}</Paragraph>}
       <StyledUl>
         {options.map((item) => (
           <Checkbox

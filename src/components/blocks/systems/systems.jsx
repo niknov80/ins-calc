@@ -23,6 +23,7 @@ const Systems = ({
         onChange={changeHandler}
         maxModules={maxModules}
         uncheck={appStore.getTypePlatform === 4}
+        desc={'*Стоимость первого модуля составляет 700 000 руб.'}
       />
     </>
   );
