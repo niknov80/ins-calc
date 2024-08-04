@@ -9,6 +9,7 @@ import MoreProductCard from "../../blocks/more-product-card/more-product-card";
 import Title, {TitleLevel, TitleSize} from "../../ui/title/title";
 import {observer} from "mobx-react-lite";
 import {appStore} from "../../../stores";
+import {Outlet} from "react-router-dom";
 
 function PageWrapper({calcData}) {
   const [modalActive, setModalActive] = useState(false);
@@ -17,13 +18,7 @@ function PageWrapper({calcData}) {
     <Wrapper>
       <Header />
       <Main as="main">
-        <Container>
-          <Title className={"header"} level={TitleLevel.H1} size={TitleSize.BIG}>Подберите конфигурацию<br/><span>ПАК ИнсоНет</span></Title>
-          <MainWrapper>
-            <CalcForm calcData={calcData} />
-            <ProductCard setActive={setModalActive} />
-          </MainWrapper>
-        </Container>
+        <Outlet />
       </Main>
       <Footer />
       <MoreProductCard

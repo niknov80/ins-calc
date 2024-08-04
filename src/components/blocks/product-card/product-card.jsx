@@ -5,9 +5,7 @@ import Button from "../../ui/button/button";
 import {appStore} from "../../../stores";
 import {observer} from "mobx-react-lite";
 
-const ProductCard = ({
-  setActive
-}) => {
+const ProductCard = () => {
   useEffect(() => {
     appStore.calcPakAttributes();
   }, []);
@@ -24,7 +22,7 @@ const ProductCard = ({
         <StyledDefinition>{appStore.getPakPrice.toLocaleString('ru-RU') || '<Not set>'} руб.</StyledDefinition>
         {appStore.getIsWindows && <StyledTerm className="attention">Внимание</StyledTerm>}
         {appStore.getIsWindows && <StyledDefinition className="attention">Необходимо уточнить цену на windows</StyledDefinition>}
-        {isShowButton && <Button as="button" onClick={() => setActive(true)}>Подробнее</Button>}
+        {isShowButton && <Button as="button" >Подробнее</Button>}
       </ProductOptionList>
     </StyledProductCard>
   )

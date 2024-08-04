@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {StuledMenuList, StuledMenuItem, StyledMenuLink, Burger} from "./styles";
+import {StyledMenuList, StuledMenuItem, StyledMenuLink, Burger} from "./styles";
 
 
 const MainMenu = () => {
@@ -17,7 +17,7 @@ const MainMenu = () => {
   return (
     <>
       <Burger className={isMenuOpened} type="button" aria-label="Открыть меню" onClick={clickBurgerHandler}/>
-      <StuledMenuList className={isMenuOpened}>
+      <StyledMenuList className={isMenuOpened}>
         <StuledMenuItem>
           <StyledMenuLink href="https://quick-set.ru/">Главная</StyledMenuLink>
         </StuledMenuItem>
@@ -39,7 +39,7 @@ const MainMenu = () => {
         <StuledMenuItem>
           <StyledMenuLink href="https://quick-set.ru/#contact">Контакты</StyledMenuLink>
         </StuledMenuItem>
-      </StuledMenuList>
+      </StyledMenuList>
     </>
 
   )

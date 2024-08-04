@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import StyledLink from "../../ui/link/styles";
-export const StuledMenuList = styled.ul`
-    
+
+export const StyledMenuList = styled.ul`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
