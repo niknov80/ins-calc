@@ -13,7 +13,6 @@ function RadioButton({
 }) {
   const isChecked = value === selectValue;
   const priceText = value.includes('win') ? "По запросу"  : `${price.toLocaleString('ru-RU')} руб.`
-  console.log(onChange);
   return (
     <StyledRadioButton>
       <label>

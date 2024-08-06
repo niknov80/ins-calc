@@ -5,15 +5,14 @@ export const StyledMenuList = styled.ul`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    column-gap: 65px;
-    row-gap: 30px;
+    column-gap: 22px;
+    row-gap: 20px;
     padding-left: 0;
     margin-top: 0;
     margin-bottom: 0;
 
     @media(max-width: ${(props) => props.theme.tabletWidth}) {
       display: none;
-      
     };
 
     &.show-menu {
