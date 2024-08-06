@@ -1,9 +1,9 @@
 import {makeAutoObservable} from "mobx";
 
 class DsStore {
-  dsArticle = '';
-  dsPrice = '';
-  dsName = '';
+  dsFullArticle = '';
+  dsFullPrice = '';
+  dsFullName = '';
   defaultDsOS = '';
   defaultDsMod = '';
   defaultDsReader = '';
@@ -18,15 +18,15 @@ class DsStore {
   }
 
   setDsPrice(price) {
-    this.dsPrice = price
+    this.dsFullPrice = price
   }
 
   setDsArticle(article) {
-    this.dsArticle = article;
+    this.dsFullArticle = article;
   }
 
   setDsName(name) {
-    this.dsName = name;
+    this.dsFullName = name;
   }
 
   setIsWindows(value) {
@@ -79,49 +79,45 @@ class DsStore {
   }
 
   get getDsName() {
-    return this.dsName;
+    return this.dsFullName;
   }
 
   get getDsArticle() {
-    return this.dsArticle;
+    return this.dsFullArticle;
   }
 
   get getDsPrice() {
-    return this.dsPrice;
+    return this.dsFullPrice;
   }
 
   get getIsWindows() {
     return this.isWindows;
   }
 
-
   calcDsName() {
-    let name = '';
     const dsName = this.selectedDs.name;
     const osName = this.selectedDsOs.name;
     const modName = this.selectedDsMod.name;
     const readerName = this.selectedDsReader.name;
-    name = `${dsName} ${modName || ''} c операционной системой: ${osName || ''}, ${readerName || ''}`;
+    let name = `${dsName} ${modName || ''} c операционной системой: ${osName || ''}, ${readerName || ''}`;
     this.setDsName(name);
   }
 
   calcDsArticle() {
-    let article = '';
     const dsArticle = this.selectedDs.article;
     const osArticle = this.selectedDsOs.article;
     const modArticle = this.selectedDsMod.article;
     const readerArticle = this.selectedDsReader.article;
-    article = `${dsArticle}(ОС_${osArticle}${modArticle ? '/И_' + modArticle : ''}${readerArticle ? '/М_' + readerArticle : ''})`;
+    let article = `${dsArticle}(ОС_${osArticle}${modArticle ? '/И_' + modArticle : ''}${readerArticle ? '/М_' + readerArticle : ''})`;
     this.setDsArticle(article);
   }
 
   calcDsPrice() {
-    let price = '';
     const dsPrice = this.selectedDs.price;
     const osPrice = this.selectedDsOs.price;
     const modPrice = this.selectedDsMod.price;
     const readerPrice = this.selectedDsReader.price;
-    price = dsPrice + osPrice + modPrice + readerPrice;
+    let price = dsPrice + osPrice + modPrice + readerPrice;
     this.setDsPrice(price);
   }
 
