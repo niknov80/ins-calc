@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import {dsStore} from "../../../stores";
-import RadioButtonList from "../../ui/radio-button-list/radio-button-list";
 import {observer} from "mobx-react-lite";
+import DsRadioButtonList from "../../ui/radio-button-list/ds-rdio-button-list";
 
 const Ds = ({ds}) => {
   useEffect(() => {
@@ -11,11 +11,12 @@ const Ds = ({ds}) => {
   const changeHandle = (evt) => {
     const selectedDs =  ds.find((item) => item.id === evt.target.value);
     dsStore.setSelectedDs(selectedDs);
+    dsStore.reset();
     dsStore.calcDsAttributes()
   }
 
   return (
-    <RadioButtonList
+    <DsRadioButtonList
       listName={"Выберите аппаратную платформу"}
       options={ds}
       name={"ds"}

@@ -12,6 +12,7 @@ class DsStore {
   selectedDsMod = '';
   selectedDsReader = '';
   isWindows = false;
+  calcType = 'ds';
 
   constructor() {
     makeAutoObservable(this);
@@ -66,6 +67,10 @@ class DsStore {
     return this.selectedDs.id;
   }
 
+  get getSelectedDsIndex() {
+    return this.selectedDs.index;
+  }
+
   get getSelectedDsOsId() {
     return this.selectedDsOs.id;
   }
@@ -94,6 +99,10 @@ class DsStore {
     return this.isWindows;
   }
 
+  get getCalcType() {
+    return this.calcType;
+  }
+
   calcDsName() {
     const dsName = this.selectedDs.name;
     const osName = this.selectedDsOs.name;
@@ -108,7 +117,7 @@ class DsStore {
     const osArticle = this.selectedDsOs.article;
     const modArticle = this.selectedDsMod.article;
     const readerArticle = this.selectedDsReader.article;
-    let article = `${dsArticle}(ОС_${osArticle}${modArticle ? '/И_' + modArticle : ''}${readerArticle ? '/М_' + readerArticle : ''})`;
+    let article = `${dsArticle}(ОС_${osArticle}${modArticle ? '/И_' + modArticle : ''}${readerArticle ? '/С_' + readerArticle : ''})`;
     this.setDsArticle(article);
   }
 
@@ -125,6 +134,13 @@ class DsStore {
     this.calcDsName();
     this.calcDsArticle();
     this.calcDsPrice();
+  }
+
+  reset() {
+    this.selectedDsOs = this.defaultDsOS;
+    this.selectedDsMod = this.defaultDsMod;
+    this.selectedDsReader = this.defaultDsReader;
+    this.setIsWindows(false);
   }
 }
 

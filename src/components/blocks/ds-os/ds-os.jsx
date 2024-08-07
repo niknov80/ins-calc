@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import {observer} from "mobx-react-lite";
-import RadioButtonList from "../../ui/radio-button-list/radio-button-list";
 import {dsStore} from "../../../stores";
+import DsRadioButtonList from "../../ui/radio-button-list/ds-rdio-button-list";
 
 const DsOs = ({dsOs}) => {
   useEffect(() => {
@@ -17,7 +17,7 @@ const DsOs = ({dsOs}) => {
   }
 
   return (
-    <RadioButtonList
+    <DsRadioButtonList
       listName={"Выберите операционную систему"}
       options={dsOs}
       name={"dsOs"}

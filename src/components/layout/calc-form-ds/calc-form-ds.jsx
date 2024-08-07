@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {StyledDeviceList} from "./styles";
 import {observer} from "mobx-react-lite";
 import Ds from "../../blocks/ds/ds";
@@ -9,7 +9,6 @@ import DsReader from "../../blocks/ds-reader/ds-reader";
 const CalcFormDs = ({
   calcData: {ds = [], dsOs = [], modification = [], cardReader = []}
 }) =>  {
-
 
   return (
     <StyledDeviceList >
