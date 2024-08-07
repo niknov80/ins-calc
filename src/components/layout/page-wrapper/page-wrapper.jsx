@@ -1,12 +1,8 @@
 import React, {useState} from "react";
 import Header from "../header/header";
 import Footer from "../footer/footer";
-import {Main, MainWrapper, Wrapper} from "./styles";
-import CalcForm from "../calc-form/calc-form";
-import ProductCard from "../../blocks/product-card/product-card";
-import {Container} from "../../styled";
+import {Main, Wrapper} from "./styles";
 import MoreProductCard from "../../blocks/more-product-card/more-product-card";
-import Title, {TitleLevel, TitleSize} from "../../ui/title/title";
 import {observer} from "mobx-react-lite";
 import {appStore} from "../../../stores";
 import {Outlet} from "react-router-dom";

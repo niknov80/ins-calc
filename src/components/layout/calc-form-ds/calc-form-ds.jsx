@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import {StyledDeviceList} from "./styles";
 import {observer} from "mobx-react-lite";
 import Ds from "../../blocks/ds/ds";

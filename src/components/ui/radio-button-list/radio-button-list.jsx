@@ -2,7 +2,7 @@ import React from "react";
 import RadioButton from "../radio-button/radio-button";
 import Title, {TitleLevel} from "../title/title";
 import {StyledRadioButtonList, StyledUl} from "./styles";
-import {appStore, dsStore} from "../../../stores";
+import {appStore} from "../../../stores";
 import {observer} from "mobx-react-lite";
 
 function RadioButtonList({

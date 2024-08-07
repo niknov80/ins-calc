@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import Modules from "../../blocks/modules/modules";
 import Systems from "../../blocks/systems/systems";
 import Platform from "../../blocks/platform/platform";
