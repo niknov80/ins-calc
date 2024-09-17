@@ -11,6 +11,14 @@ export const StyledTitle = styled.h1`
     return padding;
   }};
     
+  padding-left: ${(props) => {
+    let paddingLeft = "0";
+    if (props.className === "header") {
+      paddingLeft = "25px";
+    }
+    return paddingLeft;
+  }};
+    
   font-weight: ${(props) => {
     let fontWeight = "700";
     if (props.className === "list__title") {

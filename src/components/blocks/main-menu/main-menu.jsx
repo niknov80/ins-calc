@@ -31,9 +31,6 @@ const MainMenu = () => {
           <StyledMenuLink href="https://quick-set.ru/#logistic">Доставка</StyledMenuLink>
         </StuledMenuItem>
         <StuledMenuItem>
-          <StyledMenuLink href="https://config.quick-set.ru">Калькулятор</StyledMenuLink>
-        </StuledMenuItem>
-        <StuledMenuItem>
           <StyledMenuLink href="https://quick-set.ru/price.html">Прайс-лист</StyledMenuLink>
         </StuledMenuItem>
         <StuledMenuItem>

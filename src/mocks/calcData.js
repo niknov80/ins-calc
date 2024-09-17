@@ -276,12 +276,21 @@ export const calcData = {
       "isChecked": false
     },
     {
+      "name": "Модуль интеграции с видеосерверами \"РОНЕКС\" INS-SS-RVS",
+      "article": "24",
+      "price": 350000,
+      "description": "Описание модуля",
+      "id": "ins-ss-rvs",
+      "index": 414,
+      "isChecked": false
+    },
+    {
       "name": "Модуль интеграции \"Сириус\" INS-SS-SR",
       "article": "31",
       "price": 350000,
       "description": "Описание модуля",
       "id": "ins-ss-sr",
-      "index": 414,
+      "index": 415,
       "isChecked": false
     },
     {
@@ -290,7 +299,7 @@ export const calcData = {
       "price": 350000,
       "description": "Описание модуля",
       "id": "ins-ss-kk",
-      "index": 415,
+      "index": 416,
       "isChecked": false
     },
     {
@@ -299,7 +308,7 @@ export const calcData = {
       "price": 350000,
       "description": "Описание модуля",
       "id": "ins-ss-ec",
-      "index": 416,
+      "index": 417,
       "isChecked": false
     },
     {
@@ -308,7 +317,7 @@ export const calcData = {
       "price": 350000,
       "description": "Описание модуля",
       "id": "ins-ss-evs",
-      "index": 417,
+      "index": 418,
       "isChecked": false
     },
     {
@@ -317,7 +326,7 @@ export const calcData = {
       "price": 350000,
       "description": "Описание модуля",
       "id": "ins-ss-sd",
-      "index": 418,
+      "index": 419,
       "isChecked": false
     }
   ],

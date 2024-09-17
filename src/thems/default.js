@@ -3,8 +3,10 @@ export const defaultTheme = {
   colorHeaderDefault: 'rgb(34, 34, 34)',
   colorWhite: '#ffffff',
   colorBg: 'rgba(24, 24, 24, 1)',
+
   colorBgListHeader: '#a77ab3',
   colorBgList: 'rgba(167,122,179,0.3)',
+
 
   colorForBorderList: 'none',
 
@@ -14,7 +16,7 @@ export const defaultTheme = {
   colorForBorderInput: 'rgba(0, 0, 0, 0.1)',
   colorForBgInput: 'rgba(246, 246, 246, 1)',
 
-  pageWidth: '1920px',
+  pageWidth: '1140px',
   pagePaddingLeft: '205px',
   pagePaddingRight: '240px',
   pagePaddingLaptopLeft: '60px',
@@ -34,5 +36,13 @@ export const defaultTheme = {
   tabletWidth: '1024px',
   mobileWidth: '768px',
 
-  pagePaddingMobile: '3%'
+  pagePaddingMobile: '3%',
+
+  // footer
+  colorFooterBg: '#0a1c2d',
+  colorTextFooter: '#b6bbc0',
+  fontSizeFooter: '16px',
+  fontSizeContactItem: '14px',
+  lineHeightFooter: '28px',
+  colorCopyright: '#888888'
 };
